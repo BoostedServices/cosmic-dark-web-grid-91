@@ -1,6 +1,28 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
+
 const MetricsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const ProductsSoldIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="#fff" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12" opacity="0.5" />
       <path fill="#fff" d="M22 5a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-7.5 5.75a.75.75 0 0 1 0-1.5H17a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-.69l-2.013 2.013a1.75 1.75 0 0 1-2.474 0l-1.586-1.586a.25.25 0 0 0-.354 0L7.53 14.53a.75.75 0 0 1-1.06-1.06l2.293-2.293a1.75 1.75 0 0 1 2.474 0l1.586 1.586a.25.25 0 0 0 .354 0l2.012-2.013z" />
@@ -23,39 +45,109 @@ const MetricsSection = () => {
   
   const TrustedIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="#0036D6" d="M3.378 5.082C3 5.62 3 7.22 3 10.417v1.574c0 5.638 4.239 8.375 6.899 9.536c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473C16.761 20.365 21 17.63 21 11.991v-1.574c0-3.198 0-4.797-.378-5.335c-.377-.537-1.88-1.052-4.887-2.081l-.573-.196C13.595 2.268 12.812 2 12 2s-1.595.268-3.162.805L8.265 3c-3.007 1.03-4.51 1.545-4.887 2.082" opacity="0.5"/><path fill="#0036D6" d="M15.06 10.5a.75.75 0 0 0-1.12-1l-3.011 3.374l-.87-.974a.75.75 0 0 0-1.118 1l1.428 1.6a.75.75 0 0 0 1.119 0z"/></svg>;
 
-  const metrics = [{
-    icon: <ProductsSoldIcon />,
-    value: "10000",
-    label: "Products Sold",
-    gradient: "from-[#0036D6] to-[#0028A3]"
-  }, {
-    icon: <CustomersServedIcon />,
-    value: "7500",
-    label: "Customers Served",
-    gradient: "from-[#0042F0] to-[#002db3]"
-  }, {
-    icon: <AverageRatingIcon />,
-    value: "4.99",
-    label: "Average Rating",
-    gradient: "from-[#0036D6] to-[#001f7a]"
-  }, {
-    icon: <MatchesWonIcon />,
-    value: "100K",
-    label: "Matches Won",
-    gradient: "from-[#0028A3] to-[#001854]"
-  }];
-  return <div className="bg-[#0A0A0B] py-16 px-4">
+  // Animated Counter Components
+  const AnimatedMetric = ({ value, label, icon, gradient, delay }: { 
+    value: number; 
+    label: string; 
+    icon: React.ReactNode; 
+    gradient: string;
+    delay: number;
+  }) => {
+    const { count, ref } = useAnimatedCounter({ 
+      end: value, 
+      duration: 2500,
+      suffix: label === "Average Rating" ? "" : ""
+    });
+
+    return (
+      <div 
+        ref={ref}
+        className={`bg-gradient-to-br ${gradient} rounded-2xl p-8 text-center relative overflow-hidden group hover:scale-105 transition-all duration-500 cursor-pointer transform-gpu ${
+          isVisible ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-8 rotate-3'
+        }`}
+        style={{ 
+          transitionDelay: `${delay}ms`,
+          transformStyle: 'preserve-3d'
+        }}
+      >
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 animate-pulse" />
+          <div className="absolute bottom-4 left-4 w-8 h-8 rounded-full bg-white/10 animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white/5 animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10">
+          <div className="flex justify-center mb-4">
+            <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 group-hover:rotate-6">
+              {icon}
+            </div>
+          </div>
+          <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-medium group-hover:scale-105 transition-transform duration-300">
+            {label === "Average Rating" ? 
+              (parseFloat(count.toString()) || 0).toFixed(2) : 
+              count
+            }
+          </div>
+          <div className="text-white/90 font-medium text-lg group-hover:text-white transition-colors duration-300">
+            {label}
+          </div>
+        </div>
+
+        {/* Hover Glow Effect */}
+        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl blur-xl" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+      </div>
+    );
+  };
+
+  const metrics = [
+    {
+      icon: <ProductsSoldIcon />,
+      value: 10000,
+      label: "Products Sold",
+      gradient: "from-[#0036D6] to-[#0028A3]"
+    },
+    {
+      icon: <CustomersServedIcon />,
+      value: 7500,
+      label: "Customers Served",
+      gradient: "from-[#0042F0] to-[#002db3]"
+    },
+    {
+      icon: <AverageRatingIcon />,
+      value: 4.99,
+      label: "Average Rating",
+      gradient: "from-[#0036D6] to-[#001f7a]"
+    },
+    {
+      icon: <MatchesWonIcon />,
+      value: 100000,
+      label: "Matches Won",
+      gradient: "from-[#0028A3] to-[#001854]"
+    }
+  ];
+
+  return (
+    <div ref={sectionRef} className="bg-[#0A0A0B] py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <div className="flex items-center justify-center mb-4 gap-2">
-            <TrustedIcon />
-            <span className="text-[#0036D6] text-sm font-semibold tracking-wider">Trusted by thousands</span>
+            <div className="animate-pulse">
+              <TrustedIcon />
+            </div>
+            <span className="text-[#0036D6] text-sm font-semibold tracking-wider hover:text-[#0028A3] transition-colors duration-300">
+              Trusted by thousands
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 hover:text-gray-100 transition-colors duration-300">
             Used by gamers all over the world
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto hover:text-gray-300 transition-colors duration-300">
             Our cheats are trusted by thousands of gamers worldwide.<br />
             Join them and experience the power of our software today.
           </p>
@@ -63,34 +155,20 @@ const MetricsSection = () => {
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, index) => <div key={index} className={`bg-gradient-to-br ${metric.gradient} rounded-2xl p-8 text-center relative overflow-hidden group hover:scale-105 transition-transform duration-300`}>
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20" />
-                <div className="absolute bottom-4 left-4 w-8 h-8 rounded-full bg-white/10" />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white/5" />
-              </div>
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
-                    {metric.icon}
-                  </div>
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-medium ">
-                  {metric.value}
-                </div>
-                <div className="text-white/90 font-medium text-lg">
-                  {metric.label}
-                </div>
-              </div>
-
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-            </div>)}
+          {metrics.map((metric, index) => (
+            <AnimatedMetric
+              key={index}
+              value={metric.value}
+              label={metric.label}
+              icon={metric.icon}
+              gradient={metric.gradient}
+              delay={200 + index * 150}
+            />
+          ))}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default MetricsSection;

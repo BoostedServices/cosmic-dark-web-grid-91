@@ -153,6 +153,81 @@ export default {
 					'100%': {
 						transform: 'translateY(calc(-100% - 1.5rem))'
 					}
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-in-down': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(-30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-in-left': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'fade-in-right': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'scale-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.8)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'bounce-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.3)'
+					},
+					'50%': {
+						opacity: '1',
+						transform: 'scale(1.05)'
+					},
+					'70%': {
+						transform: 'scale(0.9)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px rgba(0, 54, 214, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px rgba(0, 54, 214, 0.6), 0 0 30px rgba(0, 54, 214, 0.4)'
+					}
 				}
 			},
 			animation: {
@@ -164,11 +239,26 @@ export default {
 				'pulse-ring-3': 'pulse-ring-3 2s ease-out infinite 0.6s',
 				'infinite-scroll': 'infinite-scroll 20s linear infinite',
 				'infinite-scroll-fast': 'infinite-scroll 12s linear infinite',
-				'infinite-scroll-vertical': 'infinite-scroll-vertical 30s linear infinite'
+				'infinite-scroll-vertical': 'infinite-scroll-vertical 30s linear infinite',
+				'fade-in-up': 'fade-in-up 0.8s ease-out',
+				'fade-in-down': 'fade-in-down 0.8s ease-out',
+				'fade-in-left': 'fade-in-left 0.8s ease-out',
+				'fade-in-right': 'fade-in-right 0.8s ease-out',
+				'scale-in': 'scale-in 0.6s ease-out',
+				'bounce-in': 'bounce-in 0.8s ease-out',
+				'glow': 'glow 2s ease-in-out infinite'
 			},
 			animationDelay: {
+				'100': '100ms',
+				'200': '200ms',
 				'300': '300ms',
-				'600': '600ms'
+				'400': '400ms',
+				'500': '500ms',
+				'600': '600ms',
+				'700': '700ms',
+				'800': '800ms',
+				'900': '900ms',
+				'1000': '1000ms'
 			}
 		}
 	},

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import SupportedGames from '@/components/SupportedGames';
 import ProductCards from '@/components/ProductCards';
@@ -9,6 +10,13 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after component mounts
+    setIsLoaded(true);
+  }, []);
+
   const navItems = [{
     name: 'HOME',
     href: '#'
@@ -54,22 +62,26 @@ const Index = () => {
         }} />
         
         {/* Header */}
-        <header className="relative z-10 flex items-center justify-between px-4 md:px-8 py-6">
+        <header className={`relative z-10 flex items-center justify-between px-4 md:px-8 py-6 transition-all duration-1000 ease-out ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+        }`}>
           {/* Logo - moved a bit more to the right */}
           <div className="flex items-center order-1 ml-8 md:ml-12">
-            <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto" />
+            <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto hover:scale-110 transition-transform duration-300" />
           </div>
 
           {/* Navigation - moved a bit more to the left */}
           <nav className="order-2 mr-8 md:mr-12">
             <ul className="flex items-center space-x-4 md:space-x-12">
-              {navItems.map(item => <li key={item.name}>
+              {navItems.map((item, index) => <li key={item.name} className={`transition-all duration-700 ease-out ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`} style={{ transitionDelay: `${200 + index * 100}ms` }}>
                   <a href={item.href} onClick={e => {
                 e.preventDefault();
                 setActiveTab(item.name);
               }} className={`
                       text-[#BEB9B9] font-semibold text-xs md:text-sm tracking-wide
-                      hover:text-white transition-colors duration-200
+                      hover:text-white transition-colors duration-200 hover:scale-105
                       ${activeTab === item.name ? 'text-white' : ''}
                     `}>
                     {item.name}
@@ -83,84 +95,106 @@ const Index = () => {
         <main className="relative z-10 flex items-center min-h-[80vh] px-4 md:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-8 lg:gap-0">
             {/* Left Content */}
-            <div className="flex-1 max-w-2xl text-center lg:text-left">
+            <div className={`flex-1 max-w-2xl text-center lg:text-left transition-all duration-1000 ease-out ${
+              isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`} style={{ transitionDelay: '400ms' }}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-400 leading-tight mb-6">
-                Welcome to <span className="text-[#0036D6]">Starz</span>
+                Welcome to <span className="text-[#0036D6] hover:text-[#0028A3] transition-colors duration-300">Starz</span>
               </h1>
               
-              <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-lg mx-auto lg:mx-0">
+              <p className={`text-gray-400 text-lg md:text-xl mb-10 max-w-lg mx-auto lg:mx-0 transition-all duration-1000 ease-out ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`} style={{ transitionDelay: '600ms' }}>
                 Starz, a longstanding cheat provider which is 
                 reputable and can promise you a fun cheating 
                 adventure.
               </p>
 
-              <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-6 md:px-10 text-lg md:text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200 py-[20px] md:py-[28px] mx-auto lg:mx-0">
-                <PurchaseIcon />
-                Purchase now
-              </Button>
+              <div className={`transition-all duration-1000 ease-out ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`} style={{ transitionDelay: '800ms' }}>
+                <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-6 md:px-10 text-lg md:text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-300 py-[20px] md:py-[28px] mx-auto lg:mx-0 hover:scale-105 hover:shadow-lg hover:shadow-[#0036D6]/25">
+                  <PurchaseIcon />
+                  Purchase now
+                </Button>
+              </div>
             </div>
 
             {/* Right Content - Motherboard - moved further right */}
-            <div className="flex-1 relative flex justify-center lg:justify-end items-center lg:pl-16">
+            <div className={`flex-1 relative flex justify-center lg:justify-end items-center lg:pl-16 transition-all duration-1200 ease-out ${
+              isLoaded ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-12 scale-95'
+            }`} style={{ transitionDelay: '500ms' }}>
               {/* Blue Radial Blur Background */}
-              <div className="absolute inset-0 rounded-full opacity-30" style={{
+              <div className="absolute inset-0 rounded-full opacity-30 animate-pulse" style={{
               background: `radial-gradient(circle, #0036D6 0%, transparent 70%)`,
               filter: 'blur(100px)',
               transform: 'scale(1.5)'
             }} />
               
               {/* Motherboard Image with Feature Labels */}
-              <div className="relative z-10 lg:translate-x-8">
+              <div className="relative z-10 lg:translate-x-8 hover:scale-105 transition-transform duration-500">
                 <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[300px] md:w-[400px] lg:w-[500px] h-auto object-contain" />
                 
                 {/* Ban Protection Label */}
-                <div className="absolute top-20 md:top-32 left-8 md:left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#0036D6]/30 transform rotate-[-15deg]">
+                <div className={`absolute top-20 md:top-32 left-8 md:left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#0036D6]/30 transform rotate-[-15deg] transition-all duration-1000 ease-out hover:scale-110 hover:rotate-[-10deg] ${
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+                }`} style={{ transitionDelay: '1000ms' }}>
                   <BanProtectionIcon />
                   <span className="text-[#0036D6] text-xs md:text-sm font-semibold whitespace-nowrap">Ban Protection</span>
                 </div>
 
                 {/* Always Undetected Label */}
-                <div className="absolute top-36 md:top-56 right-4 md:right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#002db3]/30 transform rotate-[15deg]">
+                <div className={`absolute top-36 md:top-56 right-4 md:right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#002db3]/30 transform rotate-[15deg] transition-all duration-1000 ease-out hover:scale-110 hover:rotate-[10deg] ${
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+                }`} style={{ transitionDelay: '1200ms' }}>
                   <AlwaysUndetectedIcon />
                   <span className="text-[#002db3] text-xs md:text-sm font-semibold whitespace-nowrap">Always Undetected</span>
                 </div>
 
                 {/* 24/7 Support Label */}
-                <div className="absolute bottom-12 md:bottom-20 left-6 md:left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-green-500/30 transform rotate-[-15deg]">
+                <div className={`absolute bottom-12 md:bottom-20 left-6 md:left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-green-500/30 transform rotate-[-15deg] transition-all duration-1000 ease-out hover:scale-110 hover:rotate-[-10deg] ${
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`} style={{ transitionDelay: '1400ms' }}>
                   <SupportIcon />
                   <span className="text-green-500 text-xs md:text-sm font-semibold whitespace-nowrap">24/7 Support</span>
                 </div>
               </div>
 
               {/* Additional Blue Glow Effects */}
-              <div className="absolute top-1/4 right-1/4 w-16 md:w-32 h-16 md:h-32 bg-[#0036D6] rounded-full opacity-20" style={{
+              <div className="absolute top-1/4 right-1/4 w-16 md:w-32 h-16 md:h-32 bg-[#0036D6] rounded-full opacity-20 animate-pulse" style={{
               filter: 'blur(40px)'
             }} />
-              <div className="absolute bottom-1/3 left-1/4 w-12 md:w-24 h-12 md:h-24 bg-[#0036D6] rounded-full opacity-15" style={{
-              filter: 'blur(30px)'
+              <div className="absolute bottom-1/3 left-1/4 w-12 md:w-24 h-12 md:h-24 bg-[#0036D6] rounded-full opacity-15 animate-pulse" style={{
+              filter: 'blur(30px)',
+              animationDelay: '1s'
             }} />
             </div>
           </div>
         </main>
       </div>
 
-      {/* Supported Games Section */}
-      <SupportedGames />
+      {/* Animated Section Wrapper */}
+      <div className={`transition-all duration-1000 ease-out ${
+        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`} style={{ transitionDelay: '1600ms' }}>
+        {/* Supported Games Section */}
+        <SupportedGames />
 
-      {/* Product Cards Section */}
-      <ProductCards />
+        {/* Product Cards Section */}
+        <ProductCards />
 
-      {/* Video Section - moved back underneath products */}
-      <VideoSection />
+        {/* Video Section - moved back underneath products */}
+        <VideoSection />
 
-      {/* Metrics Section */}
-      <MetricsSection />
+        {/* Metrics Section */}
+        <MetricsSection />
 
-      {/* Reviews Section */}
-      <ReviewsSection />
+        {/* Reviews Section */}
+        <ReviewsSection />
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
     </div>
   );
 };
