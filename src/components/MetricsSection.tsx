@@ -105,25 +105,25 @@ const MetricsSection = () => {
   const metrics = [
     {
       icon: <ProductsSoldIcon />,
-      value: 10000,
+      value: 1000,
       label: "Products Sold",
       gradient: "from-[#0036D6] to-[#0028A3]"
     },
     {
       icon: <CustomersServedIcon />,
-      value: 7500,
+      value: 532,
       label: "Customers Served",
       gradient: "from-[#0042F0] to-[#002db3]"
     },
     {
       icon: <AverageRatingIcon />,
-      value: 4.99,
+      value: 4.98,
       label: "Average Rating",
       gradient: "from-[#0036D6] to-[#001f7a]"
     },
     {
       icon: <MatchesWonIcon />,
-      value: 100000,
+      value: 21500,
       label: "Matches Won",
       gradient: "from-[#0028A3] to-[#001854]"
     }
