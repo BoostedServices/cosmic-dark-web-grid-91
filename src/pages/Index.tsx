@@ -149,14 +149,14 @@ const Index = () => {
       {/* Product Cards Section */}
       <ProductCards />
 
-      {/* Reviews Section */}
+      {/* Metrics Section */}
+      <MetricsSection />
+
+      {/* Reviews Section - moved below metrics */}
       <ReviewsSection />
 
       {/* Video Section */}
       <VideoSection />
-
-      {/* Metrics Section */}
-      <MetricsSection />
     </div>
   );
 };
