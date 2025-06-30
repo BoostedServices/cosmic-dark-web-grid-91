@@ -1,7 +1,7 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
   const navItems = [{
@@ -19,6 +19,8 @@ const Index = () => {
   }];
 
   // Custom SVG Icons
+  const PurchaseIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M3.555 14.257c-.718-3.353-1.078-5.03-.177-6.143C4.278 7 5.993 7 9.422 7h5.156c3.43 0 5.143 0 6.044 1.114s.541 2.79-.177 6.143l-.429 2c-.487 2.273-.73 3.409-1.555 4.076S16.474 21 14.15 21h-4.3c-2.324 0-3.486 0-4.31-.667c-.826-.667-1.07-1.803-1.556-4.076z" opacity="0.5"/><path fill="#fff" d="M8 11.25a.75.75 0 0 0 0 1.5h8a.75.75 0 0 0 0-1.5zM9.25 15a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75"/><path fill="#fff" fill-rule="evenodd" d="M14.665 2.33a.75.75 0 0 1 1.006.335l3 6a.75.75 0 1 1-1.342.67l-3-6a.75.75 0 0 1 .336-1.006m-5.33.001a.75.75 0 0 0-1.006.335l-3 6a.75.75 0 1 0 1.342.67l3-6a.75.75 0 0 0-.336-1.006" clip-rule="evenodd"/></svg>;
+
   const BanProtectionIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
       <path fill="#0036D6" d="M7.604 4.604C9.34 2.868 10.208 2 11.286 2c1.079 0 1.947.868 3.682 2.604l4.42 4.419c1.735 1.735 2.603 2.603 2.603 3.682s-.868 1.946-2.604 3.682s-2.604 2.604-3.682 2.604c-1.079 0-1.947-.868-3.682-2.604l-4.42-4.419C5.869 10.233 5 9.365 5 8.286s.868-1.946 2.604-3.682" />
       <path fill="#0036D6" d="m8.345 12.71l-5.52 5.518c-.342.343-.513.514-.616.692a1.56 1.56 0 0 0 0 1.562c.103.178.274.35.617.692s.513.514.692.617a1.56 1.56 0 0 0 1.562 0c.178-.103.35-.275.692-.617l5.518-5.519zm10.31-4.42l.373-.372c.342-.343.514-.514.617-.692a1.56 1.56 0 0 0 0-1.562c-.103-.179-.275-.35-.617-.692c-.342-.343-.514-.514-.692-.617a1.56 1.56 0 0 0-1.562 0c-.178.103-.35.274-.692.617l-.373.373z" opacity="0.5" />
@@ -33,130 +35,112 @@ const Index = () => {
       <ellipse cx="146" cy="183.5" rx="40" ry="46.5" fill="#10b981" fillOpacity="0.3" />
       <ellipse cx="291" cy="183.5" rx="40" ry="46.5" fill="#10b981" fillOpacity="0.3" />
     </svg>;
-  return <TooltipProvider>
-      <div className="min-h-screen bg-[#0A0A0B] relative overflow-hidden">
-        {/* Grid Background */}
-        <div className="absolute inset-0 opacity-50" style={{
-        backgroundImage: `
-            linear-gradient(#111111 1px, transparent 1px),
-            linear-gradient(90deg, #111111 1px, transparent 1px)
-          `,
-        backgroundSize: '40px 40px'
-      }} />
-        
-        {/* Header */}
-        <header className="relative z-10 flex items-center justify-between px-8 py-6">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-12 w-auto" />
+
+  return <div className="min-h-screen bg-[#0A0A0B] relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-50" style={{
+      backgroundImage: `
+          linear-gradient(#111111 1px, transparent 1px),
+          linear-gradient(90deg, #111111 1px, transparent 1px)
+        `,
+      backgroundSize: '40px 40px'
+    }} />
+      
+      {/* Header */}
+      <header className="relative z-10 flex items-center justify-between px-8 py-6">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-12 w-auto" />
+        </div>
+
+        {/* Navigation */}
+        <nav>
+          <ul className="flex items-center space-x-12">
+            {navItems.map(item => <li key={item.name}>
+                <a href={item.href} onClick={e => {
+              e.preventDefault();
+              setActiveTab(item.name);
+            }} className={`
+                    text-[#BEB9B9] font-semibold text-sm tracking-wide
+                    hover:text-white transition-colors duration-200
+                    ${activeTab === item.name ? 'text-white' : ''}
+                  `}>
+                  {item.name}
+                </a>
+              </li>)}
+          </ul>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main className="relative z-10 flex items-center min-h-[80vh] px-8">
+        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+          {/* Left Content */}
+          <div className="flex-1 max-w-2xl">
+            <h1 className="text-7xl font-bold text-gray-400 leading-tight mb-6 whitespace-nowrap">
+              Welcome to <span className="text-[#0036D6]">Starz</span>
+            </h1>
+            
+            <p className="text-gray-400 text-xl mb-10 max-w-lg">
+              Starz, a longstanding cheat provider which is 
+              reputable and can promise you a fun cheating 
+              adventure.
+            </p>
+
+            <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-10 text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200 py-[30px]">
+              <PurchaseIcon />
+              Purchase now
+            </Button>
+
+            <div className="flex items-center gap-2 mt-8">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-green-500 text-base font-medium">24/7 SUPPORT</span>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <nav>
-            <ul className="flex items-center space-x-12">
-              {navItems.map(item => <li key={item.name}>
-                  <a href={item.href} onClick={e => {
-                e.preventDefault();
-                setActiveTab(item.name);
-              }} className={`
-                      text-[#BEB9B9] font-semibold text-sm tracking-wide
-                      hover:text-white transition-colors duration-200
-                      ${activeTab === item.name ? 'text-white' : ''}
-                    `}>
-                    {item.name}
-                  </a>
-                </li>)}
-            </ul>
-          </nav>
-        </header>
-
-        {/* Hero Section */}
-        <main className="relative z-10 flex items-center min-h-[80vh] px-8">
-          <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-            {/* Left Content */}
-            <div className="flex-1 max-w-2xl">
-              <h1 className="text-7xl font-bold text-gray-400 leading-tight mb-6 whitespace-nowrap">
-                Welcome to <span className="text-[#0036D6]">Starz</span>
-              </h1>
+          {/* Right Content - Motherboard */}
+          <div className="flex-1 relative flex justify-center items-center">
+            {/* Blue Radial Blur Background */}
+            <div className="absolute inset-0 rounded-full opacity-30" style={{
+            background: `radial-gradient(circle, #0036D6 0%, transparent 70%)`,
+            filter: 'blur(100px)',
+            transform: 'scale(1.5)'
+          }} />
+            
+            {/* Motherboard Image with Feature Labels */}
+            <div className="relative z-10 transform rotate-12">
+              <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[500px] h-auto object-contain" />
               
-              <p className="text-gray-400 text-xl mb-10 max-w-lg">
-                Starz, a longstanding cheat provider which is 
-                reputable and can promise you a fun cheating 
-                adventure.
-              </p>
+              {/* Ban Protection Label */}
+              <div className="absolute top-12 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30">
+                <BanProtectionIcon />
+                <span className="text-[#0036D6] text-sm font-semibold whitespace-nowrap">Ban Protection</span>
+              </div>
 
-              <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-10 text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200 py-[30px]">
-                <ShoppingCart size={24} />
-                Purchase now
-              </Button>
+              {/* Always Undetected Label */}
+              <div className="absolute top-24 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30">
+                <AlwaysUndetectedIcon />
+                <span className="text-[#002db3] text-sm font-semibold whitespace-nowrap">Always Undetected</span>
+              </div>
 
-              <div className="flex items-center gap-2 mt-8">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-green-500 text-base font-medium">24/7 SUPPORT</span>
+              {/* 24/7 Support Label */}
+              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30">
+                <SupportIcon />
+                <span className="text-green-500 text-sm font-semibold whitespace-nowrap">24/7 Support</span>
               </div>
             </div>
 
-            {/* Right Content - Motherboard */}
-            <div className="flex-1 relative flex justify-center items-center">
-              {/* Blue Radial Blur Background */}
-              <div className="absolute inset-0 rounded-full opacity-30" style={{
-              background: `radial-gradient(circle, #0036D6 0%, transparent 70%)`,
-              filter: 'blur(100px)',
-              transform: 'scale(1.5)'
-            }} />
-              
-              {/* Motherboard Image with Tooltips */}
-              <div className="relative z-10 transform rotate-12">
-                <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[500px] h-auto object-contain" />
-                
-                {/* Ban Protection Tooltip */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className="absolute top-12 left-16 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors backdrop-blur-sm border border-[#0036D6]/30">
-                      <BanProtectionIcon />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" className="bg-black/90 text-white border-[#0036D6]/30">
-                    <p className="font-semibold">Ban Protection</p>
-                  </TooltipContent>
-                </Tooltip>
-
-                {/* Always Undetected Tooltip */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className="absolute top-24 right-8 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors backdrop-blur-sm border border-[#002db3]/30">
-                      <AlwaysUndetectedIcon />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" className="bg-black/90 text-white border-[#002db3]/30">
-                    <p className="font-semibold">Always Undetected</p>
-                  </TooltipContent>
-                </Tooltip>
-
-                {/* 24/7 Support Tooltip */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className="absolute bottom-20 left-12 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors backdrop-blur-sm border border-green-500/30">
-                      <SupportIcon />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" className="bg-black/90 text-white border-green-500/30">
-                    <p className="font-semibold">24/7 Support</p>
-                  </TooltipContent>
-                </Tooltip>
-              </div>
-
-              {/* Additional Blue Glow Effects */}
-              <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-[#0036D6] rounded-full opacity-20" style={{
-              filter: 'blur(40px)'
-            }} />
-              <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-[#0036D6] rounded-full opacity-15" style={{
-              filter: 'blur(30px)'
-            }} />
-            </div>
+            {/* Additional Blue Glow Effects */}
+            <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-[#0036D6] rounded-full opacity-20" style={{
+            filter: 'blur(40px)'
+          }} />
+            <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-[#0036D6] rounded-full opacity-15" style={{
+            filter: 'blur(30px)'
+          }} />
           </div>
-        </main>
-      </div>
-    </TooltipProvider>;
+        </div>
+      </main>
+    </div>;
 };
+
 export default Index;
