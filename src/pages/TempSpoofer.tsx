@@ -1,19 +1,15 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
-
 const TempSpoofer = () => {
   const navigate = useNavigate();
   const [selectedVariant, setSelectedVariant] = useState('3day');
   const [quantity, setQuantity] = useState(1);
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
   const productImages = ["/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png"];
-  
   const variants = {
     '3day': {
       name: '3 Day Key',
@@ -36,33 +32,26 @@ const TempSpoofer = () => {
       price: 49.99
     }
   };
-  
   const relatedProducts = [{
     name: 'Fortnite Private',
     price: 7.99,
     image: '/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png'
   }];
-  
   const handleQuantityChange = (change: number) => {
     setQuantity(Math.max(1, quantity + change));
   };
-  
   const nextImage = () => {
     setCurrentImageIndex(prev => (prev + 1) % productImages.length);
   };
-  
   const prevImage = () => {
     setCurrentImageIndex(prev => (prev - 1 + productImages.length) % productImages.length);
   };
-
   const handleCheckout = () => {
     navigate('/#products-section');
   };
-
   const handleAddToCart = () => {
     navigate('/#products-section');
   };
-
   const handleViewFortnitePrivate = () => {
     navigate('/product');
   };
@@ -91,13 +80,11 @@ const TempSpoofer = () => {
         <path stroke="#9ca3af" strokeLinecap="square" strokeLinejoin="round" strokeWidth="1.2" d="M12 8v8m4-4H8" />
       </g>
     </svg>;
-
-  return (
-    <div className="min-h-screen bg-[#0A0A0B] text-white">
+  return <div className="min-h-screen bg-[#0A0A0B] text-white">
       {/* Breadcrumb Navigation */}
       <div className="px-4 md:px-8 py-4 border-b" style={{
-        borderColor: '#111111'
-      }}>
+      borderColor: '#111111'
+    }}>
         <div className="max-w-7xl mx-auto">
           <nav className="flex items-center space-x-2 text-sm text-gray-400">
             <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
@@ -119,21 +106,19 @@ const TempSpoofer = () => {
           <div className="space-y-6">
             <div className="relative group">
               <Card className="bg-gray-900/50 overflow-hidden" style={{
-                borderColor: '#111111'
-              }}>
+              borderColor: '#111111'
+            }}>
                 <CardContent className="p-0 relative">
                   <img src={productImages[currentImageIndex]} alt="Temp Spoofer Software" className="w-full h-[400px] md:h-[500px] object-cover" />
                   
-                  {productImages.length > 1 && (
-                    <>
+                  {productImages.length > 1 && <>
                       <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-black/80 rounded-full p-2 transition-all opacity-0 group-hover:opacity-100">
                         <ArrowLeft className="w-5 h-5" />
                       </button>
                       <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 backdrop-blur-sm hover:bg-black/80 rounded-full p-2 transition-all opacity-0 group-hover:opacity-100">
                         <ArrowRight className="w-5 h-5" />
                       </button>
-                    </>
-                  )}
+                    </>}
                 </CardContent>
               </Card>
             </div>
@@ -141,10 +126,9 @@ const TempSpoofer = () => {
             {/* Related Products */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-300">People have also bought:</h3>
-              {relatedProducts.map((product, index) => (
-                <Card key={index} className="bg-gray-900/30 hover:border-[#0036D6]/30 transition-all cursor-pointer" style={{
-                  borderColor: '#111111'
-                }}>
+              {relatedProducts.map((product, index) => <Card key={index} className="bg-gray-900/30 hover:border-[#0036D6]/30 transition-all cursor-pointer" style={{
+              borderColor: '#111111'
+            }}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
                       <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded-lg" />
@@ -157,8 +141,7 @@ const TempSpoofer = () => {
                       </Button>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
@@ -167,13 +150,13 @@ const TempSpoofer = () => {
             {/* Quick Actions */}
             <div className="grid grid-cols-1 gap-4">
               <Card className="bg-gray-900/30" style={{
-                borderColor: '#111111'
-              }}>
+              borderColor: '#111111'
+            }}>
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-semibold text-white">Anydesk Support</h4>
-                      <p className="text-[#0036D6] font-bold">$9.80</p>
+                      <p className="text-[#0036D6] font-bold">$2.50</p>
                     </div>
                     <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white">
                       + Add
@@ -198,14 +181,14 @@ const TempSpoofer = () => {
               <span className="text-gray-400">Quantity:</span>
               <div className="flex items-center gap-2">
                 <button onClick={() => handleQuantityChange(-1)} style={{
-                  borderColor: '#111111'
-                }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
+                borderColor: '#111111'
+              }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
                   <MinusIcon />
                 </button>
                 <span className="w-12 text-center font-semibold">{quantity}</span>
                 <button onClick={() => handleQuantityChange(1)} style={{
-                  borderColor: '#111111'
-                }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
+                borderColor: '#111111'
+              }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
                   <PlusIcon />
                 </button>
               </div>
@@ -215,10 +198,9 @@ const TempSpoofer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-300">Variants:</h3>
               <div className="space-y-3">
-                {Object.entries(variants).map(([key, variant]) => (
-                  <Card key={key} className={`cursor-pointer transition-all border-2 ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-900/30 hover:border-gray-600'}`} style={{
-                    borderColor: selectedVariant === key ? '#0036D6' : '#111111'
-                  }} onClick={() => setSelectedVariant(key)}>
+                {Object.entries(variants).map(([key, variant]) => <Card key={key} className={`cursor-pointer transition-all border-2 ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-900/30 hover:border-gray-600'}`} style={{
+                borderColor: selectedVariant === key ? '#0036D6' : '#111111'
+              }} onClick={() => setSelectedVariant(key)}>
                     <CardContent className="p-4">
                       <div className="flex justify-between items-center">
                         <div>
@@ -230,8 +212,7 @@ const TempSpoofer = () => {
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
 
@@ -239,8 +220,8 @@ const TempSpoofer = () => {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-gray-300">Coupon:</h3>
               <input type="text" placeholder="Enter Coupon Code" value={couponCode} onChange={e => setCouponCode(e.target.value)} className="w-full px-4 py-3 bg-gray-900/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#0036D6] transition-colors border" style={{
-                borderColor: '#111111'
-              }} />
+              borderColor: '#111111'
+            }} />
             </div>
 
             {/* Action Buttons */}
@@ -250,8 +231,8 @@ const TempSpoofer = () => {
                 Checkout
               </Button>
               <Button onClick={handleAddToCart} variant="outline" className="w-full py-4 text-lg transition-all flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 font-semibold border-2" style={{
-                borderColor: '#111111'
-              }}>
+              borderColor: '#111111'
+            }}>
                 <CartIcon />
                 Add To Cart
               </Button>
@@ -260,8 +241,8 @@ const TempSpoofer = () => {
             {/* Status Badge */}
             <div className="flex justify-center">
               <div className="bg-green-500/20 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2 border" style={{
-                borderColor: '#111111'
-              }}>
+              borderColor: '#111111'
+            }}>
                 <CheckIcon />
                 Undetected
               </div>
@@ -269,8 +250,6 @@ const TempSpoofer = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default TempSpoofer;
