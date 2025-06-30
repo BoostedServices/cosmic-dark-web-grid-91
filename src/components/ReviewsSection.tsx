@@ -94,15 +94,11 @@ const ReviewsSection = () => {
           </p>
         </div>
 
-        {/* Reviews Escalator Animation Container */}
         <div className="relative h-[600px] overflow-hidden">
-          {/* Fade gradient overlays */}
           <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0A0A0B] to-transparent z-10"></div>
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent z-10"></div>
           
-          {/* Scrolling Reviews Container */}
           <div className="flex gap-6 animate-infinite-scroll-vertical">
-            {/* Column 1 */}
             <div className="flex flex-col gap-6 min-w-[280px]">
               {Array.from({ length: 6 }).map((_, setIndex) => (
                 <React.Fragment key={`col1-set-${setIndex}`}>
@@ -113,7 +109,6 @@ const ReviewsSection = () => {
               ))}
             </div>
 
-            {/* Column 2 */}
             <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '7.5s' }}>
               {Array.from({ length: 6 }).map((_, setIndex) => (
                 <React.Fragment key={`col2-set-${setIndex}`}>
@@ -124,7 +119,6 @@ const ReviewsSection = () => {
               ))}
             </div>
 
-            {/* Column 3 */}
             <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '15s' }}>
               {Array.from({ length: 6 }).map((_, setIndex) => (
                 <React.Fragment key={`col3-set-${setIndex}`}>
@@ -135,7 +129,6 @@ const ReviewsSection = () => {
               ))}
             </div>
 
-            {/* Column 4 */}
             <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '22.5s' }}>
               {Array.from({ length: 6 }).map((_, setIndex) => (
                 <React.Fragment key={`col4-set-${setIndex}`}>
