@@ -1,3 +1,4 @@
+
 import React from 'react';
 const Footer = () => {
   return <footer className="bg-[#0A0A0B] border-t border-[#333333] py-8 px-4">
@@ -10,7 +11,7 @@ const Footer = () => {
               <span className="text-white font-semibold">Starz Cheats</span>
             </div>
             <div className="text-gray-400 text-sm">
-              © 2025 Starz Cheats. All rights reserved.
+              © 2025 Starz Cheats. All rights reserved. <span className="text-gray-600 opacity-50">| Made by #boostreturns</span>
             </div>
           </div>
 
