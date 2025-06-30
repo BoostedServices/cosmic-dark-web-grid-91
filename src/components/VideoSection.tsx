@@ -12,10 +12,10 @@ const VideoSection = () => {
   );
 
   return (
-    <div className="w-full bg-[#0A0A0B] py-16">
-      {/* Video Container - Full Width and Height */}
+    <div className="w-full bg-[#0A0A0B]">
+      {/* Video Container - Full Width Edge to Edge */}
       <div className="relative w-full">
-        <div className="relative h-[70vh] w-full overflow-hidden">
+        <div className="relative h-[50vh] w-full overflow-hidden">
           {/* YouTube Embed with blur - Full Width */}
           <iframe 
             className="absolute inset-0 w-full h-full object-cover filter blur-md"
