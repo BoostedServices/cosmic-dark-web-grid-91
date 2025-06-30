@@ -162,7 +162,7 @@ const Product = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-semibold text-white">Private Driver</h4>
-                      <p className="text-[#0036D6] font-bold">$29.00</p>
+                      <p className="text-[#0036D6] font-bold">$25.00</p>
                     </div>
                     <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white">
                       + Add
