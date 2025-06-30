@@ -43,21 +43,16 @@ const Index = () => {
     }} />
       
       {/* Header */}
-      <header className="relative z-10 flex items-center justify-between px-8 py-6">
-        {/* Logo */}
-        <div className="flex items-center">
-          <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-12 w-auto" />
-        </div>
-
-        {/* Navigation */}
-        <nav>
-          <ul className="flex items-center space-x-12">
+      <header className="relative z-10 flex items-center justify-between px-4 md:px-8 py-6">
+        {/* Navigation - moved to left */}
+        <nav className="order-1">
+          <ul className="flex items-center space-x-4 md:space-x-12">
             {navItems.map(item => <li key={item.name}>
                 <a href={item.href} onClick={e => {
               e.preventDefault();
               setActiveTab(item.name);
             }} className={`
-                    text-[#BEB9B9] font-semibold text-sm tracking-wide
+                    text-[#BEB9B9] font-semibold text-xs md:text-sm tracking-wide
                     hover:text-white transition-colors duration-200
                     ${activeTab === item.name ? 'text-white' : ''}
                   `}>
@@ -66,33 +61,36 @@ const Index = () => {
               </li>)}
           </ul>
         </nav>
+
+        {/* Logo - moved to right */}
+        <div className="flex items-center order-2">
+          <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto" />
+        </div>
       </header>
 
       {/* Hero Section */}
-      <main className="relative z-10 flex items-center min-h-[80vh] px-8">
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+      <main className="relative z-10 flex items-center min-h-[80vh] px-4 md:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-8 lg:gap-0">
           {/* Left Content */}
-          <div className="flex-1 max-w-2xl">
-            <h1 className="text-7xl font-bold text-gray-400 leading-tight mb-6 whitespace-nowrap">
+          <div className="flex-1 max-w-2xl text-center lg:text-left">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-400 leading-tight mb-6">
               Welcome to <span className="text-[#0036D6]">Starz</span>
             </h1>
             
-            <p className="text-gray-400 text-xl mb-10 max-w-lg">
+            <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-lg mx-auto lg:mx-0">
               Starz, a longstanding cheat provider which is 
               reputable and can promise you a fun cheating 
               adventure.
             </p>
 
-            <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-10 text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200 py-[28px]">
+            <Button className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-6 md:px-10 text-lg md:text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200 py-[20px] md:py-[28px] mx-auto lg:mx-0">
               <PurchaseIcon />
               Purchase now
             </Button>
-
-            
           </div>
 
-          {/* Right Content - Motherboard */}
-          <div className="flex-1 relative flex justify-center items-center">
+          {/* Right Content - Motherboard - moved further right */}
+          <div className="flex-1 relative flex justify-center lg:justify-end items-center lg:pl-16">
             {/* Blue Radial Blur Background */}
             <div className="absolute inset-0 rounded-full opacity-30" style={{
             background: `radial-gradient(circle, #0036D6 0%, transparent 70%)`,
@@ -101,33 +99,33 @@ const Index = () => {
           }} />
             
             {/* Motherboard Image with Feature Labels */}
-            <div className="relative z-10">
-              <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[500px] h-auto object-contain" />
+            <div className="relative z-10 lg:translate-x-8">
+              <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[300px] md:w-[400px] lg:w-[500px] h-auto object-contain" />
               
               {/* Ban Protection Label */}
-              <div className="absolute top-32 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30 transform rotate-[-15deg]">
+              <div className="absolute top-20 md:top-32 left-8 md:left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#0036D6]/30 transform rotate-[-15deg]">
                 <BanProtectionIcon />
-                <span className="text-[#0036D6] text-sm font-semibold whitespace-nowrap">Ban Protection</span>
+                <span className="text-[#0036D6] text-xs md:text-sm font-semibold whitespace-nowrap">Ban Protection</span>
               </div>
 
               {/* Always Undetected Label */}
-              <div className="absolute top-56 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30 transform rotate-[15deg]">
+              <div className="absolute top-36 md:top-56 right-4 md:right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#002db3]/30 transform rotate-[15deg]">
                 <AlwaysUndetectedIcon />
-                <span className="text-[#002db3] text-sm font-semibold whitespace-nowrap">Always Undetected</span>
+                <span className="text-[#002db3] text-xs md:text-sm font-semibold whitespace-nowrap">Always Undetected</span>
               </div>
 
               {/* 24/7 Support Label */}
-              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30 transform rotate-[-15deg]">
+              <div className="absolute bottom-12 md:bottom-20 left-6 md:left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-green-500/30 transform rotate-[-15deg]">
                 <SupportIcon />
-                <span className="text-green-500 text-sm font-semibold whitespace-nowrap">24/7 Support</span>
+                <span className="text-green-500 text-xs md:text-sm font-semibold whitespace-nowrap">24/7 Support</span>
               </div>
             </div>
 
             {/* Additional Blue Glow Effects */}
-            <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-[#0036D6] rounded-full opacity-20" style={{
+            <div className="absolute top-1/4 right-1/4 w-16 md:w-32 h-16 md:h-32 bg-[#0036D6] rounded-full opacity-20" style={{
             filter: 'blur(40px)'
           }} />
-            <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-[#0036D6] rounded-full opacity-15" style={{
+            <div className="absolute bottom-1/3 left-1/4 w-12 md:w-24 h-12 md:h-24 bg-[#0036D6] rounded-full opacity-15" style={{
             filter: 'blur(30px)'
           }} />
           </div>
