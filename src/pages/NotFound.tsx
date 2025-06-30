@@ -40,7 +40,7 @@ const NotFound = () => {
             <span className="text-8xl md:text-9xl font-bold text-gray-400/30 animate-pulse">4</span>
             <div className="relative">
               <img 
-                src="/lovable-uploads/f8c5a6c3-9b2e-4b93-b68f-4a245dc83ebb.png" 
+                src="/Media/f8c5a6c3-9b2e-4b93-b68f-4a245dc83ebb.png" 
                 alt="Lost astronaut floating in space" 
                 className="w-32 h-32 md:w-40 md:h-40"
                 style={{

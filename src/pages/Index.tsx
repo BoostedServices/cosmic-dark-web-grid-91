@@ -83,7 +83,7 @@ const Index = () => {
         }`}>
           {/* Logo - moved a bit more to the right */}
           <div className="flex items-center order-1 ml-8 md:ml-12">
-            <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto hover:scale-110 transition-transform duration-300" />
+            <img src="/Media/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto hover:scale-110 transition-transform duration-300" />
           </div>
 
           {/* Navigation - moved a bit more to the left */}
@@ -149,7 +149,7 @@ const Index = () => {
               
               {/* Motherboard Image with Feature Labels */}
               <div className="relative z-10 lg:translate-x-8 hover:scale-105 transition-transform duration-500">
-                <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[300px] md:w-[400px] lg:w-[500px] h-auto object-contain" />
+                <img src="/Media/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[300px] md:w-[400px] lg:w-[500px] h-auto object-contain" />
                 
                 {/* Ban Protection Label */}
                 <div className={`absolute top-20 md:top-32 left-8 md:left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 md:py-2 border border-[#0036D6]/30 transform rotate-[-15deg] transition-all duration-1000 ease-out hover:scale-110 hover:rotate-[-10deg] ${

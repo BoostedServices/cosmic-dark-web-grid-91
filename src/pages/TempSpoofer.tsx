@@ -9,7 +9,7 @@ const TempSpoofer = () => {
   const [quantity, setQuantity] = useState(1);
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const productImages = ["/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png"];
+  const productImages = ["/Media/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png"];
   const variants = {
     '3day': {
       name: '3 Day Key',
@@ -35,7 +35,7 @@ const TempSpoofer = () => {
   const relatedProducts = [{
     name: 'Fortnite Private',
     price: 7.99,
-    image: '/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png'
+    image: '/Media/5d38dacc-fd94-4532-ba05-b2d595051eb5.png'
   }];
   const handleQuantityChange = (change: number) => {
     setQuantity(Math.max(1, quantity + change));

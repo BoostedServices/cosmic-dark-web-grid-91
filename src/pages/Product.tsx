@@ -10,7 +10,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const productImages = ["/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png", "/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png"];
+  const productImages = ["/Media/5d38dacc-fd94-4532-ba05-b2d595051eb5.png", "/Media/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png"];
   const variants = {
     day: {
       name: 'Day Key',
@@ -31,8 +31,9 @@ const Product = () => {
   const relatedProducts = [{
     name: 'Temp Spoofer',
     price: 26.86,
-    image: '/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png'
+    image: '/Media/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png'
   }];
+  
   const handleQuantityChange = (change: number) => {
     setQuantity(Math.max(1, quantity + change));
   };
@@ -76,6 +77,7 @@ const Product = () => {
         <path stroke="#9ca3af" strokeLinecap="square" strokeLinejoin="round" strokeWidth="1.2" d="M12 8v8m4-4H8" />
       </g>
     </svg>;
+  
   return <div className="min-h-screen bg-[#0A0A0B] text-white">
       {/* Breadcrumb Navigation */}
       <div className="px-4 md:px-8 py-4 border-b" style={{
