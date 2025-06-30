@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 const Index = () => {
@@ -90,7 +91,12 @@ const Index = () => {
             </Button>
 
             <div className="flex items-center gap-2 mt-8">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className="relative">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                {/* Pulsing radar rings */}
+                <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse opacity-50"></div>
+              </div>
               <span className="text-green-500 text-base font-medium">24/7 SUPPORT</span>
             </div>
           </div>
@@ -115,13 +121,13 @@ const Index = () => {
               </div>
 
               {/* Always Undetected Label */}
-              <div className="absolute top-44 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30 transform rotate-[15deg]">
+              <div className="absolute top-56 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30 transform rotate-[15deg]">
                 <AlwaysUndetectedIcon />
                 <span className="text-[#002db3] text-sm font-semibold whitespace-nowrap">Always Undetected</span>
               </div>
 
               {/* 24/7 Support Label */}
-              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30 transform rotate-[-10deg]">
+              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30 transform rotate-[-15deg]">
                 <SupportIcon />
                 <span className="text-green-500 text-sm font-semibold whitespace-nowrap">24/7 Support</span>
               </div>
