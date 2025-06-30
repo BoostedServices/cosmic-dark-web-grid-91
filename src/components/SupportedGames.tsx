@@ -11,9 +11,12 @@ const SupportedGames = () => {
       {/* Supported Games Label - positioned to the left */}
       <div className="flex items-center justify-start ml-8 mb-4">
         <div className="relative flex items-center mr-3">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse-dot"></div>
-          <div className="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse-dot-delay-1"></div>
-          <div className="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse-dot-delay-2"></div>
+          {/* Main dot */}
+          <div className="w-2 h-2 bg-green-500 rounded-full z-10 relative animate-pulse-core"></div>
+          {/* Expanding rings */}
+          <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-1"></div>
+          <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-2"></div>
+          <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-3"></div>
         </div>
         <span className="text-white text-sm font-semibold tracking-wider">SUPPORTED GAMES</span>
       </div>
