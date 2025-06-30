@@ -109,7 +109,7 @@ const Index = () => {
               <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[500px] h-auto object-contain" />
               
               {/* Ban Protection Label */}
-              <div className="absolute top-12 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30">
+              <div className="absolute top-32 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30 transform rotate-[-15deg]">
                 <BanProtectionIcon />
                 <span className="text-[#0036D6] text-sm font-semibold whitespace-nowrap">Ban Protection</span>
               </div>
@@ -121,7 +121,7 @@ const Index = () => {
               </div>
 
               {/* 24/7 Support Label */}
-              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30">
+              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30 transform rotate-[-10deg]">
                 <SupportIcon />
                 <span className="text-green-500 text-sm font-semibold whitespace-nowrap">24/7 Support</span>
               </div>
