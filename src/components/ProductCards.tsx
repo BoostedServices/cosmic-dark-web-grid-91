@@ -13,7 +13,7 @@ const ProductCards = () => {
       id: 1,
       name: "Fortnite Private",
       price: "$11.00+",
-      image: "/uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
+      image: "/Uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
       alt: "Fortnite Private Cheat",
       path: "/product"
     },
@@ -21,7 +21,7 @@ const ProductCards = () => {
       id: 2,
       name: "Temp Spoofer",
       price: "$26.86+",
-      image: "/uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
+      image: "/Uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
       alt: "Temp Spoofer Software",
       path: "/temp-spoofer"
     }
