@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A0A0B] border-t border-gray-800 py-8 px-4">
+    <footer className="bg-[#0A0A0B] border-t border-[#333333] py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* Left Section */}
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section - Powered by */}
-        <div className="mt-8 pt-4 border-t border-gray-800">
+        <div className="mt-8 pt-4 border-t border-[#333333]">
           <div className="text-gray-400 text-sm">
             Powered by <a href="#" className="text-gray-300 hover:text-white underline transition-colors">SelCustom</a>
           </div>

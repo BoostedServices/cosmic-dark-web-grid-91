@@ -151,7 +151,7 @@ export default {
 						transform: 'translateY(0)'
 					},
 					'100%': {
-						transform: 'translateY(-100%)'
+						transform: 'translateY(calc(-100% - 1.5rem))'
 					}
 				}
 			},
@@ -163,7 +163,8 @@ export default {
 				'pulse-ring-2': 'pulse-ring-2 2s ease-out infinite 0.3s',
 				'pulse-ring-3': 'pulse-ring-3 2s ease-out infinite 0.6s',
 				'infinite-scroll': 'infinite-scroll 20s linear infinite',
-				'infinite-scroll-fast': 'infinite-scroll 12s linear infinite'
+				'infinite-scroll-fast': 'infinite-scroll 12s linear infinite',
+				'infinite-scroll-vertical': 'infinite-scroll-vertical 30s linear infinite'
 			},
 			animationDelay: {
 				'300': '300ms',

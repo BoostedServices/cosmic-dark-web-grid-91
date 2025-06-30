@@ -55,6 +55,27 @@ const ReviewsSection = () => {
     }
   ];
 
+  const ReviewCard = ({ review, index }: { review: typeof reviews[0], index: number }) => (
+    <div 
+      className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-gray-800/50 shadow-lg mb-6 hover:border-[#0036D6]/30 transition-all duration-300 flex-shrink-0"
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <img 
+          src={review.avatar} 
+          alt={review.name}
+          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700"
+        />
+        <div>
+          <h4 className="text-white font-semibold">{review.name}</h4>
+          <p className="text-[#0036D6] text-sm font-medium">{review.game}</p>
+        </div>
+      </div>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        {review.review}
+      </p>
+    </div>
+  );
+
   return (
     <div className="bg-[#0A0A0B] py-16 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -83,129 +104,45 @@ const ReviewsSection = () => {
           <div className="flex gap-6 animate-infinite-scroll-vertical">
             {/* Column 1 */}
             <div className="flex flex-col gap-6 min-w-[280px]">
-              {Array.from({ length: 3 }).map((_, setIndex) => (
-                <div key={setIndex}>
+              {Array.from({ length: 6 }).map((_, setIndex) => (
+                <React.Fragment key={`col1-set-${setIndex}`}>
                   {reviews.slice(0, 2).map((review, index) => (
-                    <div 
-                      key={`col1-${setIndex}-${index}`} 
-                      className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-gray-800/50 shadow-lg mb-6 hover:border-[#0036D6]/30 transition-all duration-300"
-                    >
-                      {/* User Info */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <img 
-                          src={review.avatar} 
-                          alt={review.name}
-                          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700"
-                        />
-                        <div>
-                          <h4 className="text-white font-semibold">{review.name}</h4>
-                          <p className="text-[#0036D6] text-sm font-medium">{review.game}</p>
-                        </div>
-                      </div>
-
-                      {/* Review Text */}
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {review.review}
-                      </p>
-                    </div>
+                    <ReviewCard key={`col1-${setIndex}-${index}`} review={review} index={index} />
                   ))}
-                </div>
+                </React.Fragment>
               ))}
             </div>
 
             {/* Column 2 */}
-            <div className="flex flex-col gap-6 min-w-[280px]">
-              {Array.from({ length: 3 }).map((_, setIndex) => (
-                <div key={setIndex}>
+            <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '7.5s' }}>
+              {Array.from({ length: 6 }).map((_, setIndex) => (
+                <React.Fragment key={`col2-set-${setIndex}`}>
                   {reviews.slice(2, 4).map((review, index) => (
-                    <div 
-                      key={`col2-${setIndex}-${index}`} 
-                      className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-gray-800/50 shadow-lg mb-6 hover:border-[#0036D6]/30 transition-all duration-300"
-                    >
-                      {/* User Info */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <img 
-                          src={review.avatar} 
-                          alt={review.name}
-                          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700"
-                        />
-                        <div>
-                          <h4 className="text-white font-semibold">{review.name}</h4>
-                          <p className="text-[#0036D6] text-sm font-medium">{review.game}</p>
-                        </div>
-                      </div>
-
-                      {/* Review Text */}
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {review.review}
-                      </p>
-                    </div>
+                    <ReviewCard key={`col2-${setIndex}-${index}`} review={review} index={index} />
                   ))}
-                </div>
+                </React.Fragment>
               ))}
             </div>
 
             {/* Column 3 */}
-            <div className="flex flex-col gap-6 min-w-[280px]">
-              {Array.from({ length: 3 }).map((_, setIndex) => (
-                <div key={setIndex}>
+            <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '15s' }}>
+              {Array.from({ length: 6 }).map((_, setIndex) => (
+                <React.Fragment key={`col3-set-${setIndex}`}>
                   {reviews.slice(4, 6).map((review, index) => (
-                    <div 
-                      key={`col3-${setIndex}-${index}`} 
-                      className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-gray-800/50 shadow-lg mb-6 hover:border-[#0036D6]/30 transition-all duration-300"
-                    >
-                      {/* User Info */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <img 
-                          src={review.avatar} 
-                          alt={review.name}
-                          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700"
-                        />
-                        <div>
-                          <h4 className="text-white font-semibold">{review.name}</h4>
-                          <p className="text-[#0036D6] text-sm font-medium">{review.game}</p>
-                        </div>
-                      </div>
-
-                      {/* Review Text */}
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {review.review}
-                      </p>
-                    </div>
+                    <ReviewCard key={`col3-${setIndex}-${index}`} review={review} index={index} />
                   ))}
-                </div>
+                </React.Fragment>
               ))}
             </div>
 
             {/* Column 4 */}
-            <div className="flex flex-col gap-6 min-w-[280px]">
-              {Array.from({ length: 3 }).map((_, setIndex) => (
-                <div key={setIndex}>
+            <div className="flex flex-col gap-6 min-w-[280px]" style={{ animationDelay: '22.5s' }}>
+              {Array.from({ length: 6 }).map((_, setIndex) => (
+                <React.Fragment key={`col4-set-${setIndex}`}>
                   {reviews.slice(6, 8).map((review, index) => (
-                    <div 
-                      key={`col4-${setIndex}-${index}`} 
-                      className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-gray-800/50 shadow-lg mb-6 hover:border-[#0036D6]/30 transition-all duration-300"
-                    >
-                      {/* User Info */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <img 
-                          src={review.avatar} 
-                          alt={review.name}
-                          className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700"
-                        />
-                        <div>
-                          <h4 className="text-white font-semibold">{review.name}</h4>
-                          <p className="text-[#0036D6] text-sm font-medium">{review.game}</p>
-                        </div>
-                      </div>
-
-                      {/* Review Text */}
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {review.review}
-                      </p>
-                    </div>
+                    <ReviewCard key={`col4-${setIndex}-${index}`} review={review} index={index} />
                   ))}
-                </div>
+                </React.Fragment>
               ))}
             </div>
           </div>
