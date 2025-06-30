@@ -4,16 +4,12 @@ import React from 'react';
 const SupportedGames = () => {
   return (
     <div className="w-full bg-black py-4 relative overflow-hidden">
-      {/* Fade gradient overlays */}
       <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10"></div>
       <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10"></div>
       
-      {/* Supported Games Label - positioned to the left */}
       <div className="flex items-center justify-start ml-8 mb-4">
         <div className="relative flex items-center mr-3">
-          {/* Main dot */}
           <div className="w-2 h-2 bg-green-500 rounded-full z-10 relative animate-pulse-core"></div>
-          {/* Expanding rings */}
           <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-1"></div>
           <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-2"></div>
           <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-pulse-ring-3"></div>
@@ -21,7 +17,6 @@ const SupportedGames = () => {
         <span className="text-white text-sm font-semibold tracking-wider">SUPPORTED GAMES</span>
       </div>
       
-      {/* Scrolling Game Icons Container */}
       <div className="relative">
         <div className="flex animate-infinite-scroll-fast">
           {/* Multiple sets of game icons for seamless loop */}
