@@ -1,41 +1,23 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
-const Product = () => {
+const TempSpoofer = () => {
   const navigate = useNavigate();
-  const [selectedVariant, setSelectedVariant] = useState('day');
   const [quantity, setQuantity] = useState(1);
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  const productImages = ["/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png", "/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png"];
-  
-  const variants = {
-    day: {
-      name: 'Day Key',
-      duration: '24 Hour Key',
-      price: 7.99
-    },
-    week: {
-      name: 'Week Key',
-      duration: '168 Hour Key',
-      price: 14.99
-    },
-    month: {
-      name: 'Month Key',
-      duration: '720 Hour Key',
-      price: 24.99
-    }
-  };
+  const productImages = ["/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png"];
+  const price = 26.86;
   
   const relatedProducts = [{
-    name: 'Temp Spoofer',
-    price: 26.86,
-    image: '/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png'
+    name: 'Fortnite Private',
+    price: 7.99,
+    image: '/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png'
   }];
   
   const handleQuantityChange = (change: number) => {
@@ -58,8 +40,8 @@ const Product = () => {
     navigate('/#products-section');
   };
 
-  const handleViewTempSpoofer = () => {
-    navigate('/temp-spoofer');
+  const handleViewFortnitePrivate = () => {
+    navigate('/product');
   };
 
   // SVG Icons
@@ -103,7 +85,7 @@ const Product = () => {
               Product
             </button>
             <span>/</span>
-            <span className="text-white">Fortnite Private</span>
+            <span className="text-white">Temp Spoofer</span>
           </nav>
         </div>
       </div>
@@ -112,13 +94,12 @@ const Product = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Product Images */}
           <div className="space-y-6">
-            {/* Main Product Image */}
             <div className="relative group">
               <Card className="bg-gray-900/50 overflow-hidden" style={{
                 borderColor: '#111111'
               }}>
                 <CardContent className="p-0 relative">
-                  <img src={productImages[currentImageIndex]} alt="Fortnite Private Cheat" className="w-full h-[400px] md:h-[500px] object-cover" />
+                  <img src={productImages[currentImageIndex]} alt="Temp Spoofer Software" className="w-full h-[400px] md:h-[500px] object-cover" />
                   
                   {productImages.length > 1 && (
                     <>
@@ -134,19 +115,6 @@ const Product = () => {
               </Card>
             </div>
 
-            {/* Thumbnail Images */}
-            {productImages.length > 1 && (
-              <div className="flex gap-4">
-                {productImages.map((image, index) => (
-                  <button key={index} onClick={() => setCurrentImageIndex(index)} className={`relative overflow-hidden rounded-lg border-2 transition-all ${currentImageIndex === index ? 'border-[#0036D6]' : 'hover:border-gray-600'}`} style={{
-                    borderColor: currentImageIndex === index ? '#0036D6' : '#111111'
-                  }}>
-                    <img src={image} alt={`Product view ${index + 1}`} className="w-20 h-20 object-cover" />
-                  </button>
-                ))}
-              </div>
-            )}
-
             {/* Related Products */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-300">People have also bought:</h3>
@@ -161,7 +129,7 @@ const Product = () => {
                         <h4 className="font-semibold text-white">{product.name}</h4>
                         <p className="text-gray-400 text-sm">Starting at <span className="text-[#0036D6] font-bold">${product.price}</span></p>
                       </div>
-                      <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90" onClick={handleViewTempSpoofer}>
+                      <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90" onClick={handleViewFortnitePrivate}>
                         View More
                       </Button>
                     </div>
@@ -173,23 +141,13 @@ const Product = () => {
 
           {/* Right Column - Product Details */}
           <div className="space-y-8">
-            {/* Quick Actions */}
-            <div className="flex gap-4">
-              
-              <Card className="bg-gray-900/30 flex-1" style={{
-                borderColor: '#111111'
-              }}>
-                
-              </Card>
-            </div>
-
             {/* Product Title and Price */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Fortnite Private
+                Temp Spoofer
               </h1>
               <div className="text-4xl font-bold text-[#0036D6]">
-                ${variants[selectedVariant].price.toFixed(2)}
+                ${price.toFixed(2)}
               </div>
             </div>
 
@@ -208,30 +166,6 @@ const Product = () => {
                 }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
                   <PlusIcon />
                 </button>
-              </div>
-            </div>
-
-            {/* Variants Selection */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-300">Variants:</h3>
-              <div className="space-y-3">
-                {Object.entries(variants).map(([key, variant]) => (
-                  <Card key={key} className={`cursor-pointer transition-all border-2 ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-900/30 hover:border-gray-600'}`} style={{
-                    borderColor: selectedVariant === key ? '#0036D6' : '#111111'
-                  }} onClick={() => setSelectedVariant(key)}>
-                    <CardContent className="p-4">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <div className="font-semibold text-white">{variant.name}</div>
-                          <div className="text-sm text-gray-400">{variant.duration}</div>
-                        </div>
-                        <div className="text-[#0036D6] font-bold text-lg">
-                          ${variant.price.toFixed(2)}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
               </div>
             </div>
 
@@ -273,4 +207,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default TempSpoofer;
