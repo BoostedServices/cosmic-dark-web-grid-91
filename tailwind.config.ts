@@ -99,12 +99,12 @@ export default {
 						opacity: '0'
 					}
 				},
-				'seamless-scroll': {
+				'infinite-scroll': {
 					'0%': {
 						transform: 'translateX(0)'
 					},
 					'100%': {
-						transform: 'translateX(-100%)'
+						transform: 'translateX(calc(-100% / 3))'
 					}
 				}
 			},
@@ -112,7 +112,7 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'ripple-pulse': 'ripple-pulse 1.5s ease-out infinite',
-				'seamless-scroll': 'seamless-scroll 40s linear infinite'
+				'infinite-scroll': 'infinite-scroll 20s linear infinite'
 			},
 			animationDelay: {
 				'300': '300ms',
