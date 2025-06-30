@@ -45,7 +45,6 @@ const MetricsSection = () => {
   
   const TrustedIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="#0036D6" d="M3.378 5.082C3 5.62 3 7.22 3 10.417v1.574c0 5.638 4.239 8.375 6.899 9.536c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473C16.761 20.365 21 17.63 21 11.991v-1.574c0-3.198 0-4.797-.378-5.335c-.377-.537-1.88-1.052-4.887-2.081l-.573-.196C13.595 2.268 12.812 2 12 2s-1.595.268-3.162.805L8.265 3c-3.007 1.03-4.51 1.545-4.887 2.082" opacity="0.5"/><path fill="#0036D6" d="M15.06 10.5a.75.75 0 0 0-1.12-1l-3.011 3.374l-.87-.974a.75.75 0 0 0-1.118 1l1.428 1.6a.75.75 0 0 0 1.119 0z"/></svg>;
 
-  // Animated Counter Components
   const AnimatedMetric = ({ value, label, icon, gradient, delay }: { 
     value: number; 
     label: string; 
@@ -70,14 +69,12 @@ const MetricsSection = () => {
           transformStyle: 'preserve-3d'
         }}
       >
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 animate-pulse" />
           <div className="absolute bottom-4 left-4 w-8 h-8 rounded-full bg-white/10 animate-pulse" style={{ animationDelay: '0.5s' }} />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white/5 animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
         
-        {/* Content */}
         <div className="relative z-10">
           <div className="flex justify-center mb-4">
             <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 group-hover:rotate-6">
@@ -132,7 +129,6 @@ const MetricsSection = () => {
   return (
     <div ref={sectionRef} className="bg-[#0A0A0B] py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className={`text-center mb-12 transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
@@ -153,7 +149,6 @@ const MetricsSection = () => {
           </p>
         </div>
 
-        {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, index) => (
             <AnimatedMetric
