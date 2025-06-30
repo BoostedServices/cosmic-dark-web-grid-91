@@ -45,13 +45,13 @@ const Index = () => {
       
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between px-4 md:px-8 py-6">
-        {/* Logo - moved back to left */}
-        <div className="flex items-center order-1">
+        {/* Logo - moved a bit more to the right */}
+        <div className="flex items-center order-1 ml-8 md:ml-12">
           <img src="/lovable-uploads/10510cce-014f-4ca1-9e2a-fcf5b2264345.png" alt="Logo" className="h-8 md:h-12 w-auto" />
         </div>
 
-        {/* Navigation - moved back to right */}
-        <nav className="order-2">
+        {/* Navigation - moved a bit more to the left */}
+        <nav className="order-2 mr-8 md:mr-12">
           <ul className="flex items-center space-x-4 md:space-x-12">
             {navItems.map(item => <li key={item.name}>
                 <a href={item.href} onClick={e => {
