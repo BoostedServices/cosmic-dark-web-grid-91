@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section - Powered by */}
-        <div className="mt-8 pt-4 border-t border-[#333333]">
+        <div className="mt-8">
           <div className="text-gray-400 text-sm">
             Powered by <a href="#" className="text-gray-300 hover:text-white underline transition-colors">SelCustom</a>
           </div>
