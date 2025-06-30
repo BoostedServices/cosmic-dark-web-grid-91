@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-[#0A0A0B] border-t border-[#333333] py-8 px-4">
+  return <footer className="bg-[#0A0A0B] border-t border-[#333333] py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* Left Section */}
@@ -38,8 +35,8 @@ const Footer = () => {
           {/* Right Section - Activate Windows */}
           <div className="text-right">
             <div className="text-gray-400 text-sm">
-              <div className="font-semibold">Activate Windows</div>
-              <div>Go to Settings to activate Windows.</div>
+              
+              
             </div>
           </div>
         </div>
@@ -51,8 +48,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
