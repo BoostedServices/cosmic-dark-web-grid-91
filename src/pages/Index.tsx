@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 const Index = () => {
@@ -36,10 +37,10 @@ const Index = () => {
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-50" style={{
       backgroundImage: `
-          linear-gradient(#111111 1px, transparent 1px),
-          linear-gradient(90deg, #111111 1px, transparent 1px)
+          linear-gradient(#333333 2px, transparent 2px),
+          linear-gradient(90deg, #333333 2px, transparent 2px)
         `,
-      backgroundSize: '40px 40px'
+      backgroundSize: '80px 80px'
     }} />
       
       {/* Header */}
@@ -101,23 +102,23 @@ const Index = () => {
           }} />
             
             {/* Motherboard Image with Feature Labels */}
-            <div className="relative z-10 transform rotate-12">
+            <div className="relative z-10">
               <img src="/lovable-uploads/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png" alt="Gaming Motherboard" className="w-[500px] h-auto object-contain" />
               
               {/* Ban Protection Label */}
-              <div className="absolute top-32 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30 transform rotate-[-15deg]">
+              <div className="absolute top-32 left-16 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#0036D6]/30">
                 <BanProtectionIcon />
                 <span className="text-[#0036D6] text-sm font-semibold whitespace-nowrap">Ban Protection</span>
               </div>
 
               {/* Always Undetected Label */}
-              <div className="absolute top-56 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30 transform rotate-[15deg]">
+              <div className="absolute top-56 right-8 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-[#002db3]/30">
                 <AlwaysUndetectedIcon />
                 <span className="text-[#002db3] text-sm font-semibold whitespace-nowrap">Always Undetected</span>
               </div>
 
               {/* 24/7 Support Label */}
-              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30 transform rotate-[-15deg]">
+              <div className="absolute bottom-20 left-12 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-2 border border-green-500/30">
                 <SupportIcon />
                 <span className="text-green-500 text-sm font-semibold whitespace-nowrap">24/7 Support</span>
               </div>
