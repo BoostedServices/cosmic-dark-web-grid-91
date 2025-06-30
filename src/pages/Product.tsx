@@ -169,9 +169,9 @@ const Product = () => {
             <div className="flex items-center gap-4">
               <span className="text-gray-400">Quantity:</span>
               <div className="flex items-center gap-2">
-                <button onClick={() => handleQuantityChange(-1)} className="w-10 h-10 bg-gray-800 hover:border-[#0036D6] hover:bg-gray-700 rounded-lg transition-all flex items-center justify-center border" style={{
+                <button onClick={() => handleQuantityChange(-1)} style={{
                 borderColor: '#111111'
-              }}>
+              }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
                   <MinusIcon />
                 </button>
                 <span className="w-12 text-center font-semibold">{quantity}</span>
