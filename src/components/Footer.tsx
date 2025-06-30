@@ -3,7 +3,6 @@ const Footer = () => {
   return <footer className="bg-[#0A0A0B] border-t border-[#333333] py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          {/* Left Section */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <img src="/lovable-uploads/39eadef3-54aa-4e29-9732-facbf754ab58.png" alt="Starz Logo" className="h-8 w-8" />
@@ -14,7 +13,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Center Section - Navigation */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12">
             <div>
               <h3 className="text-white font-semibold mb-3">Navigation</h3>
@@ -32,7 +30,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Right Section - Activate Windows */}
           <div className="text-right">
             <div className="text-gray-400 text-sm">
               
@@ -41,7 +38,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section - Powered by */}
         <div className="mt-8">
           
         </div>
