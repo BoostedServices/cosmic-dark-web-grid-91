@@ -1,5 +1,7 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import SupportedGames from '@/components/SupportedGames';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -132,6 +134,9 @@ const Index = () => {
           </div>
         </div>
       </main>
+
+      {/* Supported Games Section */}
+      <SupportedGames />
     </div>;
 };
 
