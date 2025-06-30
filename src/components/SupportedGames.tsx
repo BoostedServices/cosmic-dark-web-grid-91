@@ -1,6 +1,9 @@
+
 import React from 'react';
+
 const SupportedGames = () => {
-  return <div className="w-full bg-black py-4 relative overflow-hidden">
+  return (
+    <div className="w-full bg-black py-4 relative overflow-hidden">
       {/* Fade gradient overlays */}
       <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10"></div>
       <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10"></div>
@@ -19,8 +22,7 @@ const SupportedGames = () => {
       <div className="relative">
         <div className="flex animate-continuous-scroll">
           {/* First set of game icons */}
-          <div className="flex items-center space-x-8 min-w-max px-8">
-            
+          <div className="flex items-center space-x-16 min-w-max px-16">
             <img src="/lovable-uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png" alt="Modern Warfare" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/1b6b2d10-24fa-4963-b406-e075b82cd380.png" alt="OBS" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/e44a0ba7-640c-4f51-8222-d4642221779e.png" alt="Rust" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
@@ -28,8 +30,7 @@ const SupportedGames = () => {
           </div>
           
           {/* Duplicate set for seamless continuous loop */}
-          <div className="flex items-center space-x-8 min-w-max px-8">
-            
+          <div className="flex items-center space-x-16 min-w-max px-16">
             <img src="/lovable-uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png" alt="Modern Warfare" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/1b6b2d10-24fa-4963-b406-e075b82cd380.png" alt="OBS" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/e44a0ba7-640c-4f51-8222-d4642221779e.png" alt="Rust" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
@@ -37,6 +38,8 @@ const SupportedGames = () => {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default SupportedGames;
