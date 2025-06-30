@@ -19,7 +19,6 @@ const SupportedGames = () => {
       
       <div className="relative">
         <div className="flex animate-infinite-scroll-fast">
-          {/* Multiple sets of game icons for seamless loop */}
           {Array.from({ length: 3 }).map((_, index) => (
             <div key={index} className="flex items-center space-x-32 min-w-max px-32 flex-shrink-0">
               <img src="/lovable-uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png" alt="Modern Warfare" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
