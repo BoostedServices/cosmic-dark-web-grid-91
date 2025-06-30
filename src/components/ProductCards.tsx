@@ -30,7 +30,6 @@ const ProductCards = () => {
   return (
     <div className="w-full bg-[#0A0A0B] py-16 px-4 md:px-8" id="products-section">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="mb-12">
           <div className="flex items-center mb-4 gap-2">
             <BrowseIcon />
@@ -44,7 +43,6 @@ const ProductCards = () => {
           </p>
         </div>
 
-        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <Card 
@@ -53,18 +51,15 @@ const ProductCards = () => {
               onClick={() => navigate(product.path)}
             >
               <CardContent className="p-0">
-                {/* Product Image */}
                 <div className="relative aspect-video overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.alt}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
                 </div>
                 
-                {/* Product Info */}
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#0036D6] transition-colors">
                     {product.name}
