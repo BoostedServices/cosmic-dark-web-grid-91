@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -143,6 +144,14 @@ export default {
 					},
 					'100%': {
 						transform: 'translateX(calc(-100% / 3))'
+					}
+				},
+				'infinite-scroll-vertical': {
+					'0%': {
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						transform: 'translateY(-100%)'
 					}
 				}
 			},

@@ -77,7 +77,7 @@ const ReviewsSection = () => {
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent z-10"></div>
           
           {/* Scrolling Reviews Container */}
-          <div className="flex gap-6 animate-infinite-scroll-vertical">
+          <div className="flex gap-6 animate-[infinite-scroll-vertical_20s_linear_infinite]">
             {/* Column 1 */}
             <div className="flex flex-col gap-6 min-w-[280px]">
               {Array.from({ length: 3 }).map((_, setIndex) => (
@@ -208,21 +208,6 @@ const ReviewsSection = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes infinite-scroll-vertical {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-100%);
-          }
-        }
-        
-        .animate-infinite-scroll-vertical {
-          animation: infinite-scroll-vertical 20s linear infinite;
-        }
-      `}</style>
     </div>
   );
 };
