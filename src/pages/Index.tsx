@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import SupportedGames from '@/components/SupportedGames';
 import ProductCards from '@/components/ProductCards';
 import VideoSection from '@/components/VideoSection';
+import MetricsSection from '@/components/MetricsSection';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -149,6 +150,9 @@ const Index = () => {
 
       {/* Video Section */}
       <VideoSection />
+
+      {/* Metrics Section */}
+      <MetricsSection />
     </div>
   );
 };
