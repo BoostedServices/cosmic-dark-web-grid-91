@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import SupportedGames from '@/components/SupportedGames';
 import ProductCards from '@/components/ProductCards';
+import VideoSection from '@/components/VideoSection';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -146,6 +146,9 @@ const Index = () => {
 
       {/* Product Cards Section */}
       <ProductCards />
+
+      {/* Video Section */}
+      <VideoSection />
     </div>
   );
 };
