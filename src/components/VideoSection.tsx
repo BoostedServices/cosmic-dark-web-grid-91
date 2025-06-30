@@ -12,7 +12,7 @@ const VideoSection = () => {
   );
 
   return (
-    <div className="w-full bg-[#0A0A0B]">
+    <div className="w-screen bg-[#0A0A0B] -mx-[50vw] relative left-1/2 right-1/2">
       {/* Video Container - Full Width Edge to Edge */}
       <div className="relative w-full">
         <div className="relative h-[50vh] w-full overflow-hidden">
