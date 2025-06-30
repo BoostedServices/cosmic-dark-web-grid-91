@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, ArrowRight, Minus, Plus } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
@@ -43,6 +43,45 @@ const Product = () => {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
   };
+
+  // SVG Icons
+  const CheckIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="#fff" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity="0.5"/>
+      <path fill="#fff" d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0"/>
+    </svg>
+  );
+
+  const CheckoutIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="#fff" d="M2.084 2.751a.75.75 0 0 1 .956-.459l.301.106c.617.217 1.14.401 1.553.603c.44.217.818.483 1.102.899c.282.412.399.865.452 1.362q.035.333.044.738H17.13c1.685 0 3.202 0 3.646.577s.27 1.447-.077 3.186l-.5 2.425c-.315 1.528-.472 2.293-1.024 2.742c-.552.45-1.332.45-2.893.45h-5.303c-2.79 0-4.184 0-5.05-.914s-.93-1.884-.93-4.826V7.038c0-.74 0-1.235-.042-1.615c-.04-.363-.109-.545-.2-.677c-.087-.129-.22-.25-.524-.398c-.323-.158-.762-.314-1.43-.549l-.26-.091a.75.75 0 0 1-.46-.957" opacity="0.5"/>
+      <path fill="#fff" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m-.958-8.483a.75.75 0 1 0-1.086-1.034l-2.314 2.43l-.6-.63a.75.75 0 1 0-1.086 1.034l1.143 1.2a.75.75 0 0 0 1.086 0z"/>
+    </svg>
+  );
+
+  const CartIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="#fff" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3"/>
+      <path fill="#fff" d="M2.084 2.751a.75.75 0 0 1 .956-.459l.301.106c.617.217 1.14.401 1.553.603c.44.217.818.483 1.102.899c.282.412.399.865.452 1.362q.035.333.044.738H17.13c1.685 0 3.202 0 3.646.577s.27 1.447-.077 3.186l-.5 2.425c-.315 1.528-.472 2.293-1.024 2.742c-.552.45-1.332.45-2.893.45h-5.303c-2.79 0-4.184 0-5.05-.914s-.93-1.884-.93-4.826V7.038c0-.74 0-1.235-.042-1.615c-.04-.363-.109-.545-.2-.677c-.087-.129-.22-.25-.524-.398c-.323-.158-.762-.314-1.43-.549l-.26-.091a.75.75 0 0 1-.46-.957" opacity="0.5"/>
+      <path fill="#fff" d="M13.75 9a.75.75 0 0 0-1.5 0v1.25H11a.75.75 0 0 0 0 1.5h1.25V13a.75.75 0 0 0 1.5 0v-1.25H15a.75.75 0 0 0 0-1.5h-1.25z"/>
+    </svg>
+  );
+
+  const MinusIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="#fff" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity="0.5"/>
+      <path fill="#fff" d="M15.75 12a.75.75 0 0 1-.75.75H9a.75.75 0 0 1 0-1.5h6a.75.75 0 0 1 .75.75"/>
+    </svg>
+  );
+
+  const PlusIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <g fill="none">
+        <circle cx="12" cy="12" r="9" fill="#fff" fillOpacity="0.25"/>
+        <path stroke="#fff" strokeLinecap="square" strokeLinejoin="round" strokeWidth="1.2" d="M12 8v8m4-4H8"/>
+      </g>
+    </svg>
+  );
 
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white">
@@ -189,23 +228,19 @@ const Product = () => {
             <div className="flex items-center gap-4">
               <span className="text-gray-400">Quantity:</span>
               <div className="flex items-center gap-2">
-                <Button
-                  size="sm"
-                  variant="outline"
+                <button
                   onClick={() => handleQuantityChange(-1)}
-                  className="w-10 h-10 border-gray-700 hover:border-[#0036D6] hover:bg-[#0036D6]/10"
+                  className="w-10 h-10 bg-gray-800 border border-gray-700 hover:border-[#0036D6] hover:bg-gray-700 rounded-lg transition-all flex items-center justify-center"
                 >
-                  <Minus className="w-4 h-4" />
-                </Button>
+                  <MinusIcon />
+                </button>
                 <span className="w-12 text-center font-semibold">{quantity}</span>
-                <Button
-                  size="sm"
-                  variant="outline"
+                <button
                   onClick={() => handleQuantityChange(1)}
-                  className="w-10 h-10 border-gray-700 hover:border-[#0036D6] hover:bg-[#0036D6]/10"
+                  className="w-10 h-10 bg-gray-800 border border-gray-700 hover:border-[#0036D6] hover:bg-gray-700 rounded-lg transition-all flex items-center justify-center"
                 >
-                  <Plus className="w-4 h-4" />
-                </Button>
+                  <PlusIcon />
+                </button>
               </div>
             </div>
 
@@ -253,21 +288,24 @@ const Product = () => {
 
             {/* Action Buttons */}
             <div className="space-y-4">
-              <Button className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02]">
-                ⚡ Checkout
+              <Button className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
+                <CheckoutIcon />
+                Checkout
               </Button>
               <Button 
                 variant="outline" 
-                className="w-full border-gray-700 hover:border-[#0036D6] hover:bg-[#0036D6]/10 py-4 text-lg transition-all"
+                className="w-full border-gray-700 hover:border-[#0036D6] hover:bg-[#0036D6]/10 py-4 text-lg transition-all flex items-center justify-center gap-2"
               >
-                🛒 Add To Cart
+                <CartIcon />
+                Add To Cart
               </Button>
             </div>
 
             {/* Status Badge */}
             <div className="flex justify-center">
-              <div className="bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2 text-green-400 text-sm font-semibold">
-                ✓ Undetected
+              <div className="bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2">
+                <CheckIcon />
+                Undetected
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ const ProductCards = () => {
   ];
 
   return (
-    <div className="w-full bg-[#0A0A0B] py-16 px-4 md:px-8">
+    <div className="w-full bg-[#0A0A0B] py-16 px-4 md:px-8" id="products-section">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
