@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -86,22 +85,38 @@ export default {
 						height: '0'
 					}
 				},
-				'scroll-left': {
+				'ripple-pulse': {
+					'0%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					},
+					'50%': {
+						transform: 'scale(1.8)',
+						opacity: '0.3'
+					},
+					'100%': {
+						transform: 'scale(2.5)',
+						opacity: '0'
+					}
+				},
+				'continuous-scroll': {
 					'0%': {
 						transform: 'translateX(0)'
 					},
-					'50%': {
-						transform: 'translateX(-50%)'
-					},
 					'100%': {
-						transform: 'translateX(0)'
+						transform: 'translateX(-50%)'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'scroll-left': 'scroll-left 20s ease-in-out infinite'
+				'ripple-pulse': 'ripple-pulse 1.5s ease-out infinite',
+				'continuous-scroll': 'continuous-scroll 30s linear infinite'
+			},
+			animationDelay: {
+				'300': '300ms',
+				'600': '600ms'
 			}
 		}
 	},
