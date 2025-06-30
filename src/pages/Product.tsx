@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -28,7 +29,7 @@ const Product = () => {
     month: {
       name: 'Month Key',
       duration: '720 Hour Key',
-      price: 24.99
+      price: 44.50
     }
   };
   
@@ -174,12 +175,37 @@ const Product = () => {
           {/* Right Column - Product Details */}
           <div className="space-y-8">
             {/* Quick Actions */}
-            <div className="flex gap-4">
-              
-              <Card className="bg-gray-900/30 flex-1" style={{
+            <div className="grid grid-cols-2 gap-4">
+              <Card className="bg-gray-900/30" style={{
                 borderColor: '#111111'
               }}>
-                
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-white">Private Driver</h4>
+                      <p className="text-[#0036D6] font-bold">$29.00</p>
+                    </div>
+                    <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white">
+                      + Add
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-gray-900/30" style={{
+                borderColor: '#111111'
+              }}>
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-white">Anydesk Support</h4>
+                      <p className="text-[#0036D6] font-bold">$9.80</p>
+                    </div>
+                    <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white">
+                      + Add
+                    </Button>
+                  </div>
+                </CardContent>
               </Card>
             </div>
 

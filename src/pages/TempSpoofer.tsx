@@ -7,12 +7,35 @@ import { useNavigate } from 'react-router-dom';
 
 const TempSpoofer = () => {
   const navigate = useNavigate();
+  const [selectedVariant, setSelectedVariant] = useState('3day');
   const [quantity, setQuantity] = useState(1);
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const productImages = ["/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png"];
-  const price = 26.86;
+  
+  const variants = {
+    '3day': {
+      name: '3 Day Key',
+      duration: '72 Hour Key',
+      price: 6.99
+    },
+    week: {
+      name: 'Week Key',
+      duration: '168 Hour Key',
+      price: 14.99
+    },
+    month: {
+      name: 'Month Key',
+      duration: '720 Hour Key',
+      price: 34.99
+    },
+    lifetime: {
+      name: 'Lifetime Key',
+      duration: 'Permanent Access',
+      price: 49.99
+    }
+  };
   
   const relatedProducts = [{
     name: 'Fortnite Private',
@@ -141,13 +164,32 @@ const TempSpoofer = () => {
 
           {/* Right Column - Product Details */}
           <div className="space-y-8">
+            {/* Quick Actions */}
+            <div className="grid grid-cols-1 gap-4">
+              <Card className="bg-gray-900/30" style={{
+                borderColor: '#111111'
+              }}>
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-white">Anydesk Support</h4>
+                      <p className="text-[#0036D6] font-bold">$9.80</p>
+                    </div>
+                    <Button size="sm" className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white">
+                      + Add
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Product Title and Price */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold text-white">
                 Temp Spoofer
               </h1>
               <div className="text-4xl font-bold text-[#0036D6]">
-                ${price.toFixed(2)}
+                ${variants[selectedVariant].price.toFixed(2)}
               </div>
             </div>
 
@@ -166,6 +208,30 @@ const TempSpoofer = () => {
                 }} className="w-10 h-10 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center border bg-black/[0.31]">
                   <PlusIcon />
                 </button>
+              </div>
+            </div>
+
+            {/* Variants Selection */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-300">Variants:</h3>
+              <div className="space-y-3">
+                {Object.entries(variants).map(([key, variant]) => (
+                  <Card key={key} className={`cursor-pointer transition-all border-2 ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-900/30 hover:border-gray-600'}`} style={{
+                    borderColor: selectedVariant === key ? '#0036D6' : '#111111'
+                  }} onClick={() => setSelectedVariant(key)}>
+                    <CardContent className="p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold text-white">{variant.name}</div>
+                          <div className="text-sm text-gray-400">{variant.duration}</div>
+                        </div>
+                        <div className="text-[#0036D6] font-bold text-lg">
+                          ${variant.price.toFixed(2)}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
 
