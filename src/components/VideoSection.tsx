@@ -17,16 +17,12 @@ const VideoSection = () => {
 
   return (
     <div className="w-screen bg-[#0A0A0B] -mx-[50vw] relative left-1/2 right-1/2">
-      {/* Video Container - Full Width Edge to Edge */}
       <div className="relative w-full">
         <div className="relative h-[50vh] w-full overflow-hidden">
-          {/* YouTube Embed - Full Width */}
           <iframe className="absolute inset-0 w-full h-full object-cover" src="https://www.youtube.com/embed/0EDCrFDM4G8?start=56&autoplay=1&mute=1&loop=1&playlist=0EDCrFDM4G8&controls=0&showinfo=0&rel=0&modestbranding=1" title="Fortnite Software Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
           
-          {/* Low Opacity Background Overlay */}
           <div className="absolute inset-0 bg-black/60" />
           
-          {/* Centered Content Overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <div className="flex items-center justify-center mb-4">
