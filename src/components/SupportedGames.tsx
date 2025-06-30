@@ -10,17 +10,17 @@ const SupportedGames = () => {
       
       {/* Supported Games Label - positioned to the left */}
       <div className="flex items-center justify-start ml-8 mb-4">
-        <div className="relative">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-ripple-pulse mr-2"></div>
-          <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ripple-pulse animation-delay-300 mr-2"></div>
-          <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ripple-pulse animation-delay-600 mr-2"></div>
+        <div className="relative flex items-center mr-3">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse-dot"></div>
+          <div className="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse-dot-delay-1"></div>
+          <div className="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse-dot-delay-2"></div>
         </div>
-        <span className="text-white text-sm font-semibold tracking-wider ml-2">SUPPORTED GAMES</span>
+        <span className="text-white text-sm font-semibold tracking-wider">SUPPORTED GAMES</span>
       </div>
       
       {/* Scrolling Game Icons Container */}
       <div className="relative">
-        <div className="flex animate-infinite-scroll">
+        <div className="flex animate-infinite-scroll-fast">
           {/* Multiple sets of game icons for seamless loop */}
           {Array.from({ length: 3 }).map((_, index) => (
             <div key={index} className="flex items-center space-x-24 min-w-max px-24 flex-shrink-0">

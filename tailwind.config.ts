@@ -85,18 +85,14 @@ export default {
 						height: '0'
 					}
 				},
-				'ripple-pulse': {
-					'0%': {
-						transform: 'scale(1)',
-						opacity: '1'
+				'pulse-dot': {
+					'0%, 100%': {
+						opacity: '1',
+						transform: 'scale(1)'
 					},
 					'50%': {
-						transform: 'scale(1.8)',
-						opacity: '0.3'
-					},
-					'100%': {
-						transform: 'scale(2.5)',
-						opacity: '0'
+						opacity: '0.3',
+						transform: 'scale(1.2)'
 					}
 				},
 				'infinite-scroll': {
@@ -111,8 +107,11 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'ripple-pulse': 'ripple-pulse 1.5s ease-out infinite',
-				'infinite-scroll': 'infinite-scroll 20s linear infinite'
+				'pulse-dot': 'pulse-dot 1.5s ease-in-out infinite',
+				'pulse-dot-delay-1': 'pulse-dot 1.5s ease-in-out infinite 0.5s',
+				'pulse-dot-delay-2': 'pulse-dot 1.5s ease-in-out infinite 1s',
+				'infinite-scroll': 'infinite-scroll 20s linear infinite',
+				'infinite-scroll-fast': 'infinite-scroll 12s linear infinite'
 			},
 			animationDelay: {
 				'300': '300ms',
