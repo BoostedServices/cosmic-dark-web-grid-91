@@ -66,29 +66,27 @@ const Index = () => {
       <main className="relative z-10 flex items-center min-h-[80vh] px-8">
         <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
           {/* Left Content */}
-          <div className="flex-1 max-w-lg">
-            <h1 className="text-6xl font-bold text-gray-400 leading-tight mb-4">
-              Welcome<br />
-              to<br />
-              <span className="text-[#0036D6]">Starz</span>
+          <div className="flex-1 max-w-2xl">
+            <h1 className="text-7xl font-bold text-gray-400 leading-tight mb-6 whitespace-nowrap">
+              Welcome to <span className="text-[#0036D6]">Starz</span>
             </h1>
             
-            <p className="text-gray-400 text-lg mb-8 max-w-md">
+            <p className="text-gray-400 text-xl mb-10 max-w-lg">
               Starz, a longstanding cheat provider which is 
               reputable and can promise you a fun cheating 
               adventure.
             </p>
 
             <Button 
-              className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-8 py-3 text-lg font-semibold rounded-lg flex items-center gap-3 transition-all duration-200"
+              className="bg-[#0036D6] hover:bg-[#0036D6]/90 text-white px-10 py-4 text-xl font-semibold rounded-lg flex items-center gap-3 transition-all duration-200"
             >
-              <ShoppingCart size={20} />
+              <ShoppingCart size={24} />
               Purchase now
             </Button>
 
-            <div className="flex items-center gap-2 mt-6">
+            <div className="flex items-center gap-2 mt-8">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-green-500 text-sm font-medium">24/7 SUPPORT</span>
+              <span className="text-green-500 text-base font-medium">24/7 SUPPORT</span>
             </div>
           </div>
 
