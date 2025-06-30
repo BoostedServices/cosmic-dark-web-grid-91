@@ -8,49 +8,49 @@ const ReviewsSection = () => {
     {
       name: "luke",
       game: "Fortnite",
-      avatar: "/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
+      avatar: "/Uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
       review: "JUST DROPPED 65 KILLS IN CASH CUP BEST CHEAT EVER"
     },
     {
       name: "kbmfab",
       game: "Fortnite",
-      avatar: "/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
+      avatar: "/Uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
       review: "+rep Starz not only provides an excellent Fortnite cheat but also backs it up with exceptional support. Any issues I've had were resolved quickly."
     },
     {
       name: "levert 185",
       game: "Perm Spoofer",
-      avatar: "/lovable-uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png",
+      avatar: "/Uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png",
       review: "+rep amazing spoofer, instant just follow instructions and it will work"
     },
     {
       name: "harry",
       game: "Fortnite",
-      avatar: "/lovable-uploads/e44a0ba7-640c-4f51-8222-d4642221779e.png",
+      avatar: "/Uploads/e44a0ba7-640c-4f51-8222-d4642221779e.png",
       review: "+rep Starz, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
     },
     {
       name: "rebuda",
       game: "Fortnite",
-      avatar: "/lovable-uploads/1b6b2d10-24fa-4963-b406-e075b82cd380.png",
+      avatar: "/Uploads/1b6b2d10-24fa-4963-b406-e075b82cd380.png",
       review: "Starz is incredible, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
     },
     {
       name: "alex94",
       game: "Temp Spoofer",
-      avatar: "/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
+      avatar: "/Uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
       review: "5 Cup performance was solid. Although there wasn't a video guide, it performed really well. I achieved a solid placement and didn't face any issues."
     },
     {
       name: "pro_gamer",
       game: "Fortnite",
-      avatar: "/lovable-uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
+      avatar: "/Uploads/5d38dacc-fd94-4532-ba05-b2d595051eb5.png",
       review: "Best investment I've made for gaming. The software is undetected and works flawlessly every time."
     },
     {
       name: "shadow123",
       game: "Perm Spoofer",
-      avatar: "/lovable-uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png",
+      avatar: "/Uploads/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png",
       review: "Amazing results with this spoofer. Been using it for months without any issues. Highly recommended!"
     }
   ];
