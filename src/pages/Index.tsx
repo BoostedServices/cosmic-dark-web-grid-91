@@ -5,6 +5,7 @@ import ProductCards from '@/components/ProductCards';
 import ReviewsSection from '@/components/ReviewsSection';
 import VideoSection from '@/components/VideoSection';
 import MetricsSection from '@/components/MetricsSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -157,6 +158,9 @@ const Index = () => {
 
       {/* Reviews Section */}
       <ReviewsSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

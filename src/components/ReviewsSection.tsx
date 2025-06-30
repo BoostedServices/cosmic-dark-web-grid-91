@@ -13,7 +13,7 @@ const ReviewsSection = () => {
       name: "kbmfab",
       game: "Fortnite",
       avatar: "/lovable-uploads/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png",
-      review: "+rep Zombie not only provides an excellent Fortnite cheat but also backs it up with exceptional support. Any issues I've had were resolved quickly."
+      review: "+rep Starz not only provides an excellent Fortnite cheat but also backs it up with exceptional support. Any issues I've had were resolved quickly."
     },
     {
       name: "levert 185",
@@ -25,13 +25,13 @@ const ReviewsSection = () => {
       name: "harry",
       game: "Fortnite",
       avatar: "/lovable-uploads/e44a0ba7-640c-4f51-8222-d4642221779e.png",
-      review: "+rep zombie, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
+      review: "+rep Starz, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
     },
     {
       name: "rebuda",
       game: "Fortnite",
       avatar: "/lovable-uploads/1b6b2d10-24fa-4963-b406-e075b82cd380.png",
-      review: "Zombie is incredible, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
+      review: "Starz is incredible, raging for 2 days now in ranked no ban, just need to watch out for spectators. Got lifetime"
     },
     {
       name: "alex94",
