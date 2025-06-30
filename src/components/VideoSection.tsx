@@ -16,9 +16,9 @@ const VideoSection = () => {
       {/* Video Container - Full Width Edge to Edge */}
       <div className="relative w-full">
         <div className="relative h-[50vh] w-full overflow-hidden">
-          {/* YouTube Embed with blur - Full Width */}
+          {/* YouTube Embed - Full Width */}
           <iframe 
-            className="absolute inset-0 w-full h-full object-cover filter blur-md"
+            className="absolute inset-0 w-full h-full object-cover"
             src="https://www.youtube.com/embed/0EDCrFDM4G8?start=56&autoplay=1&mute=1&loop=1&playlist=0EDCrFDM4G8&controls=0&showinfo=0&rel=0&modestbranding=1"
             title="Fortnite Software Demo"
             frameBorder="0"
@@ -27,8 +27,8 @@ const VideoSection = () => {
             allowFullScreen
           />
           
-          {/* Dark Overlay with Blur */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+          {/* Low Opacity Background Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
           
           {/* Centered Content Overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
