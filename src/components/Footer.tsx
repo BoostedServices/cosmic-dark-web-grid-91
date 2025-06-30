@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Left Section */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-[#0036D6] text-2xl font-bold">Z</span>
+              <img src="/lovable-uploads/39eadef3-54aa-4e29-9732-facbf754ab58.png" alt="Starz Logo" className="h-8 w-8" />
               <span className="text-white font-semibold">Starz Cheats</span>
             </div>
             <div className="text-gray-400 text-sm">
