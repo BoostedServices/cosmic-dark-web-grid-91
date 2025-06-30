@@ -17,18 +17,34 @@ const Index = () => {
     setIsLoaded(true);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (itemName: string, href: string) => {
+    setActiveTab(itemName);
+    
+    if (itemName === 'HOME') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (itemName === 'PRODUCTS') {
+      scrollToSection('products-section');
+    } else if (itemName === 'REVIEWS') {
+      scrollToSection('reviews-section');
+    }
+  };
+
   const navItems = [{
     name: 'HOME',
     href: '#'
   }, {
     name: 'PRODUCTS',
-    href: '#'
+    href: '#products'
   }, {
     name: 'REVIEWS',
-    href: '#'
-  }, {
-    name: 'STATUS',
-    href: '#'
+    href: '#reviews'
   }];
 
   // Custom SVG Icons
@@ -78,10 +94,10 @@ const Index = () => {
               }`} style={{ transitionDelay: `${200 + index * 100}ms` }}>
                   <a href={item.href} onClick={e => {
                 e.preventDefault();
-                setActiveTab(item.name);
+                handleNavClick(item.name, item.href);
               }} className={`
                       text-[#BEB9B9] font-semibold text-xs md:text-sm tracking-wide
-                      hover:text-white transition-colors duration-200 hover:scale-105
+                      hover:text-white transition-colors duration-200 hover:scale-105 cursor-pointer
                       ${activeTab === item.name ? 'text-white' : ''}
                     `}>
                     {item.name}
@@ -181,7 +197,9 @@ const Index = () => {
         <SupportedGames />
 
         {/* Product Cards Section */}
-        <ProductCards />
+        <div id="products-section">
+          <ProductCards />
+        </div>
 
         {/* Video Section - moved back underneath products */}
         <VideoSection />
@@ -190,7 +208,9 @@ const Index = () => {
         <MetricsSection />
 
         {/* Reviews Section */}
-        <ReviewsSection />
+        <div id="reviews-section">
+          <ReviewsSection />
+        </div>
 
         {/* Footer */}
         <Footer />
