@@ -13,12 +13,12 @@ const VideoSection = () => {
 
   return (
     <div className="w-full bg-[#0A0A0B] py-16">
-      {/* Video Container - Full Width */}
+      {/* Video Container - Full Width and Height */}
       <div className="relative w-full">
-        <div className="relative h-[50vh] overflow-hidden">
-          {/* YouTube Embed with blur */}
+        <div className="relative h-[70vh] w-full overflow-hidden">
+          {/* YouTube Embed with blur - Full Width */}
           <iframe 
-            className="w-full h-full object-cover filter blur-md"
+            className="absolute inset-0 w-full h-full object-cover filter blur-md"
             src="https://www.youtube.com/embed/0EDCrFDM4G8?start=56&autoplay=1&mute=1&loop=1&playlist=0EDCrFDM4G8&controls=0&showinfo=0&rel=0&modestbranding=1"
             title="Fortnite Software Demo"
             frameBorder="0"
