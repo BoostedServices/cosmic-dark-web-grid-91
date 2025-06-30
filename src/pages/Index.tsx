@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import SupportedGames from '@/components/SupportedGames';
 import ProductCards from '@/components/ProductCards';
+import ReviewsSection from '@/components/ReviewsSection';
 import VideoSection from '@/components/VideoSection';
 import MetricsSection from '@/components/MetricsSection';
 
@@ -147,6 +148,9 @@ const Index = () => {
 
       {/* Product Cards Section */}
       <ProductCards />
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
       {/* Video Section */}
       <VideoSection />
