@@ -47,11 +47,11 @@ const ProductCards = () => {
           {products.map((product) => (
             <Card 
               key={product.id} 
-              className="bg-gray-900/50 border-gray-800/50 hover:border-[#0036D6]/50 transition-all duration-300 overflow-hidden group cursor-pointer"
+              className="bg-gray-800/50 border-gray-700/50 hover:border-[#0036D6]/50 transition-all duration-300 overflow-hidden group cursor-pointer rounded-[30px]"
               onClick={() => navigate(product.path)}
             >
               <CardContent className="p-0">
-                <div className="relative aspect-video overflow-hidden">
+                <div className="relative aspect-video overflow-hidden rounded-t-[30px]">
                   <img 
                     src={product.image} 
                     alt={product.alt}
