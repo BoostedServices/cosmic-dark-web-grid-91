@@ -20,7 +20,7 @@ const SupportedGames = () => {
       <div className="relative">
         <div className="flex animate-infinite-scroll-fast">
           {Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="flex items-center space-x-32 min-w-max px-32 flex-shrink-0">
+            <div key={index} className="flex items-center space-x-48 min-w-max px-48 flex-shrink-0">
               <img src="/Media/0d40d1cb-bb2f-49a4-9cb8-c99a753282c5.png" alt="Modern Warfare" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
               <img src="/Media/1b6b2d10-24fa-4963-b406-e075b82cd380.png" alt="OBS" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
               <img src="/Media/e44a0ba7-640c-4f51-8222-d4642221779e.png" alt="Rust" className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
