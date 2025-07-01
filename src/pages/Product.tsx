@@ -223,10 +223,7 @@ const Product = () => {
             </div>
 
             {/* Coupon Code */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-gray-300">Coupon:</h3>
-              <input type="text" placeholder="Enter Coupon Code" value={couponCode} onChange={e => setCouponCode(e.target.value)} className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#0036D6] transition-colors" />
-            </div>
+            
 
             {/* Action Buttons */}
             <div className="space-y-4">
