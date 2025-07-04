@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShoppingCart } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
 const TempSpoofer = () => {
@@ -72,10 +71,6 @@ const TempSpoofer = () => {
       <path fill="#10b981" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity="0.5" />
       <path fill="#10b981" d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" />
     </svg>;
-  const CheckoutIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-      <path fill="#fff" d="M2.084 2.751a.75.75 0 0 1 .956-.459l.301.106c.617.217 1.14.401 1.553.603c.44.217.818.483 1.102.899c.282.412.399.865.452 1.362q.035.333.044.738H17.13c1.685 0 3.202 0 3.646.577s.27 1.447-.077 3.186l-.5 2.425c-.315 1.528-.472 2.293-1.024 2.742c-.552.45-1.332.45-2.893.45h-5.303c-2.79 0-4.184 0-5.05-.914s-.93-1.884-.93-4.826V7.038c0-.74 0-1.235-.042-1.615c-.04-.363-.109-.545-.2-.677c-.087-.129-.22-.25-.524-.398c-.323-.158-.762-.314-1.43-.549l-.26-.091a.75.75 0 0 1-.46-.957" opacity="0.5" />
-      <path fill="#fff" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m-.958-8.483a.75.75 0 1 0-1.086-1.034l-2.314 2.43l-.6-.63a.75.75 0 1 0-1.086 1.034l1.143 1.2a.75.75 0 0 0 1.086 0z" />
-    </svg>;
   const CartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="#000" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3" />
       <path fill="#000" d="M2.084 2.751a.75.75 0 0 1 .956-.459l.301.106c.617.217 1.14.401 1.553.603c.44.217.818.483 1.102.899c.282.412.399.865.452 1.362q.035.333.044.738H17.13c1.685 0 3.202 0 3.646.577s.27 1.447-.077 3.186l-.5 2.425c-.315 1.528-.472 2.293-1.024 2.742c-.552.45-1.332.45-2.893.45h-5.303c-2.79 0-4.184 0-5.05-.914s-.93-1.884-.93-4.826V7.038c0-.74 0-1.235-.042-1.615c-.04-.363-.109-.545-.2-.677c-.087-.129-.22-.25-.524-.398c-.323-.158-.762-.314-1.43-.549l-.26-.091a.75.75 0 0 1-.46-.957" opacity="0.5" />
@@ -116,7 +111,7 @@ const TempSpoofer = () => {
           {/* Left Column - Product Images */}
           <div className="space-y-6">
             <div className="relative group">
-              <Card className="bg-gray-800/50 border-gray-700/50 overflow-hidden rounded-[30px]">
+              <Card className="bg-gray-900/50 border-gray-800/50 overflow-hidden rounded-[30px]">
                 <CardContent className="p-0 relative">
                   <img 
                     src={productImages[currentImageIndex]} 
@@ -148,7 +143,7 @@ const TempSpoofer = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-300">People have also bought:</h3>
               {relatedProducts.map((product, index) => (
-                <Card key={index} className="bg-gray-800/30 border-gray-700/50 hover:border-[#0036D6]/30 transition-all cursor-pointer rounded-[20px]">
+                <Card key={index} className="bg-gray-900/30 border-gray-800/50 hover:border-[#0036D6]/30 transition-all cursor-pointer rounded-[20px]">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
                       <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded-lg" />
@@ -172,7 +167,7 @@ const TempSpoofer = () => {
           <div className="space-y-8">
             {/* Quick Actions */}
             <div className="grid grid-cols-1 gap-4">
-              <Card className="bg-gray-800/30 border-gray-700/50 rounded-[20px]">
+              <Card className="bg-gray-900/30 border-gray-800/50 rounded-[20px]">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -203,14 +198,14 @@ const TempSpoofer = () => {
               <div className="flex items-center gap-2">
                 <button 
                   onClick={() => handleQuantityChange(-1)} 
-                  className="w-10 h-10 border border-gray-700 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-800/50"
+                  className="w-10 h-10 border border-gray-800 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-900/50"
                 >
                   <MinusIcon />
                 </button>
                 <span className="w-12 text-center font-semibold">{quantity}</span>
                 <button 
                   onClick={() => handleQuantityChange(1)} 
-                  className="w-10 h-10 border border-gray-700 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-800/50"
+                  className="w-10 h-10 border border-gray-800 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-900/50"
                 >
                   <PlusIcon />
                 </button>
@@ -227,7 +222,7 @@ const TempSpoofer = () => {
                     className={`cursor-pointer transition-all border-2 rounded-[20px] ${
                       selectedVariant === key 
                         ? 'bg-[#0036D6]/10 border-[#0036D6]' 
-                        : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600'
+                        : 'bg-gray-900/30 border-gray-800/50 hover:border-gray-700'
                     }`}
                     onClick={() => setSelectedVariant(key)}
                   >
@@ -255,7 +250,7 @@ const TempSpoofer = () => {
                 placeholder="Enter Coupon Code" 
                 value={couponCode} 
                 onChange={(e) => setCouponCode(e.target.value)} 
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#0036D6] transition-colors"
+                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#0036D6] transition-colors"
               />
             </div>
 
@@ -265,13 +260,13 @@ const TempSpoofer = () => {
                 onClick={handleCheckout} 
                 className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
               >
-                <CheckoutIcon />
+                <ShoppingCart className="w-5 h-5" />
                 Checkout
               </Button>
               <Button 
                 onClick={handleAddToCart} 
                 variant="outline" 
-                className="w-full py-4 text-lg transition-all flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 font-semibold border-2 border-gray-700"
+                className="w-full py-4 text-lg transition-all flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 font-semibold border-2 border-gray-800"
               >
                 <CartIcon />
                 Add To Cart
@@ -280,7 +275,7 @@ const TempSpoofer = () => {
 
             {/* Status Badge */}
             <div className="flex justify-center">
-              <div className="bg-green-500/20 border border-gray-700 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2">
+              <div className="bg-green-500/20 border border-gray-800 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2">
                 <CheckIcon />
                 Undetected
               </div>

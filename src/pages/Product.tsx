@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShoppingCart } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
+
 const Product = () => {
   const navigate = useNavigate();
   const [selectedVariant, setSelectedVariant] = useState('day');
@@ -33,21 +34,27 @@ const Product = () => {
     price: 26.86,
     image: '/Media/b8eae0bb-5ce7-4814-ac52-559e4330f4a6.png'
   }];
+
   const handleQuantityChange = (change: number) => {
     setQuantity(Math.max(1, quantity + change));
   };
+
   const nextImage = () => {
     setCurrentImageIndex(prev => (prev + 1) % productImages.length);
   };
+
   const prevImage = () => {
     setCurrentImageIndex(prev => (prev - 1 + productImages.length) % productImages.length);
   };
+
   const handleCheckout = () => {
     navigate('/#products-section');
   };
+
   const handleAddToCart = () => {
     navigate('/#products-section');
   };
+
   const handleViewTempSpoofer = () => {
     navigate('/temp-spoofer');
   };
@@ -56,10 +63,6 @@ const Product = () => {
   const CheckIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="#10b981" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" opacity="0.5" />
       <path fill="#10b981" d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0" />
-    </svg>;
-  const CheckoutIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-      <path fill="#fff" d="M2.084 2.751a.75.75 0 0 1 .956-.459l.301.106c.617.217 1.14.401 1.553.603c.44.217.818.483 1.102.899c.282.412.399.865.452 1.362q.035.333.044.738H17.13c1.685 0 3.202 0 3.646.577s.27 1.447-.077 3.186l-.5 2.425c-.315 1.528-.472 2.293-1.024 2.742c-.552.45-1.332.45-2.893.45h-5.303c-2.79 0-4.184 0-5.05-.914s-.93-1.884-.93-4.826V7.038c0-.74 0-1.235-.042-1.615c-.04-.363-.109-.545-.2-.677c-.087-.129-.22-.25-.524-.398c-.323-.158-.762-.314-1.43-.549l-.26-.091a.75.75 0 0 1-.46-.957" opacity="0.5" />
-      <path fill="#fff" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m-.958-8.483a.75.75 0 1 0-1.086-1.034l-2.314 2.43l-.6-.63a.75.75 0 1 0-1.086 1.034l1.143 1.2a.75.75 0 0 0 1.086 0z" />
     </svg>;
   const CartIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="#000" d="M7.5 18a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m9 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3" />
@@ -76,6 +79,7 @@ const Product = () => {
         <path stroke="#9ca3af" strokeLinecap="square" strokeLinejoin="round" strokeWidth="1.2" d="M12 8v8m4-4H8" />
       </g>
     </svg>;
+
   return <div className="min-h-screen bg-[#0A0A0B] text-white">
       {/* Breadcrumb Navigation */}
       <div className="px-4 md:px-8 py-4 border-b border-gray-800">
@@ -100,7 +104,7 @@ const Product = () => {
           <div className="space-y-6">
             {/* Main Product Image */}
             <div className="relative group">
-              <Card className="bg-gray-800/50 border-gray-700/50 overflow-hidden rounded-[30px]">
+              <Card className="bg-gray-900/50 border-gray-800/50 overflow-hidden rounded-[30px]">
                 <CardContent className="p-0 relative">
                   <img src={productImages[currentImageIndex]} alt="Fortnite Private Cheat" className="w-full h-[400px] md:h-[500px] object-cover" />
                   
@@ -118,7 +122,7 @@ const Product = () => {
 
             {/* Thumbnail Images */}
             {productImages.length > 1 && <div className="flex gap-4">
-                {productImages.map((image, index) => <button key={index} onClick={() => setCurrentImageIndex(index)} className={`relative overflow-hidden rounded-lg border-2 transition-all ${currentImageIndex === index ? 'border-[#0036D6]' : 'border-gray-700 hover:border-gray-600'}`}>
+                {productImages.map((image, index) => <button key={index} onClick={() => setCurrentImageIndex(index)} className={`relative overflow-hidden rounded-lg border-2 transition-all ${currentImageIndex === index ? 'border-[#0036D6]' : 'border-gray-800 hover:border-gray-700'}`}>
                     <img src={image} alt={`Product view ${index + 1}`} className="w-20 h-20 object-cover" />
                   </button>)}
               </div>}
@@ -126,7 +130,7 @@ const Product = () => {
             {/* Related Products */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-300">People have also bought:</h3>
-              {relatedProducts.map((product, index) => <Card key={index} className="bg-gray-800/30 border-gray-700/50 hover:border-[#0036D6]/30 transition-all cursor-pointer rounded-[20px]">
+              {relatedProducts.map((product, index) => <Card key={index} className="bg-gray-900/30 border-gray-800/50 hover:border-[#0036D6]/30 transition-all cursor-pointer rounded-[20px]">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
                       <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded-lg" />
@@ -149,7 +153,7 @@ const Product = () => {
           <div className="space-y-8">
             {/* Quick Actions */}
             <div className="grid grid-cols-2 gap-4">
-              <Card className="bg-gray-800/30 border-gray-700/50 rounded-[20px]">
+              <Card className="bg-gray-900/30 border-gray-800/50 rounded-[20px]">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -163,7 +167,7 @@ const Product = () => {
                 </CardContent>
               </Card>
               
-              <Card className="bg-gray-800/30 border-gray-700/50 rounded-[20px]">
+              <Card className="bg-gray-900/30 border-gray-800/50 rounded-[20px]">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -192,11 +196,11 @@ const Product = () => {
             <div className="flex items-center gap-4">
               <span className="text-gray-400">Quantity:</span>
               <div className="flex items-center gap-2">
-                <button onClick={() => handleQuantityChange(-1)} className="w-10 h-10 border border-gray-700 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-800/50">
+                <button onClick={() => handleQuantityChange(-1)} className="w-10 h-10 border border-gray-800 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-900/50">
                   <MinusIcon />
                 </button>
                 <span className="w-12 text-center font-semibold">{quantity}</span>
-                <button onClick={() => handleQuantityChange(1)} className="w-10 h-10 border border-gray-700 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-800/50">
+                <button onClick={() => handleQuantityChange(1)} className="w-10 h-10 border border-gray-800 hover:border-[#0036D6] rounded-lg transition-all flex items-center justify-center bg-gray-900/50">
                   <PlusIcon />
                 </button>
               </div>
@@ -206,7 +210,7 @@ const Product = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-300">Variants:</h3>
               <div className="space-y-3">
-                {Object.entries(variants).map(([key, variant]) => <Card key={key} className={`cursor-pointer transition-all border-2 rounded-[20px] ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600'}`} onClick={() => setSelectedVariant(key)}>
+                {Object.entries(variants).map(([key, variant]) => <Card key={key} className={`cursor-pointer transition-all border-2 rounded-[20px] ${selectedVariant === key ? 'bg-[#0036D6]/10 border-[#0036D6]' : 'bg-gray-900/30 border-gray-800/50 hover:border-gray-700'}`} onClick={() => setSelectedVariant(key)}>
                     <CardContent className="p-4">
                       <div className="flex justify-between items-center">
                         <div>
@@ -222,21 +226,17 @@ const Product = () => {
               </div>
             </div>
 
-            {/* Coupon Code */}
-            
-
             {/* Action Buttons */}
             <div className="space-y-4">
               <Button onClick={handleCheckout} className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
-                <CheckoutIcon />
+                <ShoppingCart className="w-5 h-5" />
                 Checkout
               </Button>
-              
             </div>
 
             {/* Status Badge */}
             <div className="flex justify-center">
-              <div className="bg-green-500/20 border border-gray-700 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2">
+              <div className="bg-green-500/20 border border-gray-800 rounded-full px-4 py-2 text-green-400 text-sm font-semibold flex items-center gap-2">
                 <CheckIcon />
                 Undetected
               </div>
@@ -246,4 +246,5 @@ const Product = () => {
       </div>
     </div>;
 };
+
 export default Product;
