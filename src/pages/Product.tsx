@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -19,19 +18,19 @@ const Product = () => {
       name: 'Day Key',
       duration: '24 Hour Key',
       price: 7.99,
-      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // Using the provided ID for now
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155'
     },
     week: {
       name: 'Week Key',
       duration: '168 Hour Key',
       price: 14.99,
-      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // You'll need different IDs for each variant
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155'
     },
     month: {
       name: 'Month Key',
       duration: '720 Hour Key',
       price: 44.50,
-      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // You'll need different IDs for each variant
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155'  
     }
   };
   
@@ -56,6 +55,20 @@ const Product = () => {
   const handleViewTempSpoofer = () => {
     navigate('/temp-spoofer');
   };
+
+  // Debug SellHub
+  useEffect(() => {
+    const checkSellHub = () => {
+      console.log('Checking SellHub availability...');
+      if (window.SellHub) {
+        console.log('SellHub is loaded and ready');
+      } else {
+        console.log('SellHub not found, retrying in 1 second...');
+        setTimeout(checkSellHub, 1000);
+      }
+    };
+    checkSellHub();
+  }, []);
 
   // SVG Icons
   const CheckIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -236,19 +249,37 @@ const Product = () => {
 
             {/* SellHub Action Buttons */}
             <div className="space-y-4">
-              {/* Buy Now Button */}
+              {/* Buy Now Button - Updated with proper SellHub attributes */}
               <button
                 data-sellhub-product={variants[selectedVariant].sellhubId}
+                data-sellhub-quantity={quantity}
+                onClick={() => console.log('Buy Now clicked', variants[selectedVariant].sellhubId)}
                 className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 border-none cursor-pointer"
+                style={{
+                  borderRadius: '10px',
+                  backgroundColor: '#0036D6',
+                  color: '#ffffff',
+                  padding: '16px 25px',
+                  border: 'none'
+                }}
               >
                 <ShoppingCart className="w-5 h-5" />
                 Buy Now - ${variants[selectedVariant].price.toFixed(2)}
               </button>
 
-              {/* Add to Cart Button */}
+              {/* Add to Cart Button - Updated with proper SellHub attributes */}
               <button
                 data-sellhub-cart-product={variants[selectedVariant].sellhubId}
+                data-sellhub-quantity={quantity}
+                onClick={() => console.log('Add to Cart clicked', variants[selectedVariant].sellhubId)}
                 className="w-full bg-gray-900/50 border border-gray-800 hover:border-[#0036D6] text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
+                style={{
+                  borderRadius: '10px',
+                  backgroundColor: 'rgba(31, 41, 55, 0.5)',
+                  color: '#ffffff',
+                  padding: '16px 25px',
+                  border: '1px solid #374151'
+                }}
               >
                 <CartIcon />
                 Add to Cart
