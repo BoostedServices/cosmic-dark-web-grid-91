@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,23 +13,28 @@ const Product = () => {
   const [couponCode, setCouponCode] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const productImages = ["/Media/5d38dacc-fd94-4532-ba05-b2d595051eb5.png", "/Media/8c4b2d31-6035-4048-bbba-fd7a139c55aa.png"];
+  
   const variants = {
     day: {
       name: 'Day Key',
       duration: '24 Hour Key',
-      price: 7.99
+      price: 7.99,
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // Using the provided ID for now
     },
     week: {
       name: 'Week Key',
       duration: '168 Hour Key',
-      price: 14.99
+      price: 14.99,
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // You'll need different IDs for each variant
     },
     month: {
       name: 'Month Key',
       duration: '720 Hour Key',
-      price: 44.50
+      price: 44.50,
+      sellhubId: 'bb01f6bf-5013-471d-bae1-e25a3ddcb155' // You'll need different IDs for each variant
     }
   };
+  
   const relatedProducts = [{
     name: 'Temp Spoofer',
     price: 26.86,
@@ -45,14 +51,6 @@ const Product = () => {
 
   const prevImage = () => {
     setCurrentImageIndex(prev => (prev - 1 + productImages.length) % productImages.length);
-  };
-
-  const handleCheckout = () => {
-    navigate('/#products-section');
-  };
-
-  const handleAddToCart = () => {
-    navigate('/#products-section');
   };
 
   const handleViewTempSpoofer = () => {
@@ -84,16 +82,26 @@ const Product = () => {
       {/* Breadcrumb Navigation */}
       <div className="px-4 md:px-8 py-4 border-b border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <nav className="flex items-center space-x-2 text-sm text-gray-400">
-            <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
-              Home
+          <nav className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-sm text-gray-400">
+              <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
+                Home
+              </button>
+              <span>/</span>
+              <button onClick={() => navigate('/#products-section')} className="hover:text-white transition-colors">
+                Product
+              </button>
+              <span>/</span>
+              <span className="text-white">Fortnite Private</span>
+            </div>
+            {/* SellHub Cart Button */}
+            <button
+              data-sellhub-open-cart-store-url="https://starzud.sellhub.cx"
+              className="bg-gray-900/50 border border-gray-800 hover:border-[#0036D6] rounded-lg p-2 transition-all flex items-center justify-center"
+              title="Open Cart"
+            >
+              <ShoppingCart className="w-5 h-5" />
             </button>
-            <span>/</span>
-            <button onClick={() => navigate('/#products-section')} className="hover:text-white transition-colors">
-              Product
-            </button>
-            <span>/</span>
-            <span className="text-white">Fortnite Private</span>
           </nav>
         </div>
       </div>
@@ -226,12 +234,25 @@ const Product = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* SellHub Action Buttons */}
             <div className="space-y-4">
-              <Button onClick={handleCheckout} className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
+              {/* Buy Now Button */}
+              <button
+                data-sellhub-product={variants[selectedVariant].sellhubId}
+                className="w-full bg-[#0036D6] hover:bg-[#0036D6]/90 text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 border-none cursor-pointer"
+              >
                 <ShoppingCart className="w-5 h-5" />
-                Checkout
-              </Button>
+                Buy Now - ${variants[selectedVariant].price.toFixed(2)}
+              </button>
+
+              {/* Add to Cart Button */}
+              <button
+                data-sellhub-cart-product={variants[selectedVariant].sellhubId}
+                className="w-full bg-gray-900/50 border border-gray-800 hover:border-[#0036D6] text-white py-4 text-lg font-semibold rounded-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <CartIcon />
+                Add to Cart
+              </button>
             </div>
 
             {/* Status Badge */}
